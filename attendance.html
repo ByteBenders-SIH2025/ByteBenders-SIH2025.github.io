@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - EduManage Pro</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduManage Pro</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                        <!-- <span class="badge" id="totalStudentsnav">5</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="teachers.html" class="nav-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Teachers</span>
+                        <!-- <span class="badge">89</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="classes.html" class="nav-link">
+                        <i class="fas fa-school"></i>
+                        <span>Classes</span>
+                        <!-- <span class="badge">45</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="subjects.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Grades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="finance.html" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="logodefault.jpeg" alt="Admin">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Attendance Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="attendanceSearch" placeholder="Search by student name or class...">
+                </div>
+                
+                <div class="filter-container">
+                    <select id="classFilter" class="filter-select">
+                        <option value="">All Classes</option>
+                        <option value="Grade 9A">Grade 9A</option>
+                        <option value="Grade 9B">Grade 9B</option>
+                        <option value="Grade 10A">Grade 10A</option>
+                        <option value="Grade 10B">Grade 10B</option>
+                        <option value="Grade 11A">Grade 11A</option>
+                        <option value="Grade 11B">Grade 11B</option>
+                        <option value="Grade 12A">Grade 12A</option>
+                        <option value="Grade 12B">Grade 12B</option>
+                    </select>
+                </div>
+                
+                <div class="date-picker-container">
+                    <input type="date" id="attendanceDate" class="date-picker">
+                </div>
+                
+                <button class="btn btn-primary" id="markAttendanceBtn">
+                    <i class="fas fa-plus"></i>
+                    Mark Attendance
+                </button>
+            </div>
+        </header>
+
+        <!-- Attendance Content -->
+        <div class="page-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon attendance">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="todayAttendance"></h3>
+                        <p>Today's Attendance</p>
+                        <span class="stat-change positive">+2.1% from yesterday</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon students">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="presentToday"></h3>
+                        <p>Present Today</p>
+                        <span class="stat-change positive">72 absent</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon classes">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="avgWeeklyAttendance"></h3>
+                        <p>Weekly Average</p>
+                        <span class="stat-change positive">+1.5% this week</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon teachers">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="attendanceTrend"></h3>
+                        <p>Monthly Trend</p>
+                        <span class="stat-change positive">Improving</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attendance Tabs -->
+            <div class="attendance-tabs">
+                <button class="tab-btn active" data-tab="daily">Daily Attendance</button>
+                <button class="tab-btn" data-tab="weekly">Weekly Report</button>
+                <button class="tab-btn" data-tab="monthly">Monthly Report</button>
+                <button class="tab-btn" data-tab="reports">Reports</button>
+            </div>
+
+            <!-- Daily Attendance Tab -->
+            <div class="tab-content active" id="daily">
+                <div class="attendance-grid">
+                    <div class="attendance-header">
+                        <h3>Today's Attendance - <span id="currentDate"></span></h3>
+                        <div class="attendance-actions">
+                            <button class="btn btn-secondary" id="exportAttendanceBtn">
+                                <i class="fas fa-download"></i>
+                                Export
+                            </button>
+                            <button class="btn btn-secondary" id="bulkMarkBtn">
+                                <i class="fas fa-tasks"></i>
+                                Bulk Mark
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="attendance-container" id="attendanceContainer">
+                        <!-- Attendance will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Report Tab -->
+            <div class="tab-content" id="weekly">
+                <div class="weekly-report">
+                    <h3>Weekly Attendance Report</h3>
+                    <div class="report-filters">
+                        <select id="weekFilter" class="filter-select">
+                            <option value="current">Current Week</option>
+                            <option value="last">Last Week</option>
+                            <option value="2weeks">2 Weeks Ago</option>
+                        </select>
+                    </div>
+                    <div class="weekly-chart-container">
+                        <canvas id="weeklyChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Report Tab -->
+            <div class="tab-content" id="monthly">
+                <div class="monthly-report">
+                    <h3>Monthly Attendance Report</h3>
+                    <div class="report-filters">
+                        <select id="monthFilter" class="filter-select">
+                            <option value="current">Current Month</option>
+                            <option value="last">Last Month</option>
+                            <option value="2months">2 Months Ago</option>
+                        </select>
+                    </div>
+                    <div class="monthly-chart-container">
+                        <canvas id="monthlyChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div class="tab-content" id="reports">
+                <div class="reports-section">
+                    <h3>Attendance Reports</h3>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Daily Attendance Report</h4>
+                                <p>Generate daily attendance summary</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Weekly Summary</h4>
+                                <p>Weekly attendance statistics</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Monthly Report</h4>
+                                <p>Monthly attendance analysis</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Absentee Report</h4>
+                                <p>Students with poor attendance</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mark Attendance Modal -->
+    <div class="modal" id="attendanceModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Mark Attendance</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="attendance-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="attendanceClass">Class *</label>
+                            <select id="attendanceClass" name="attendanceClass" required>
+                                <option value="">Select Class</option>
+                                <option value="Grade 9A">Grade 9A</option>
+                                <option value="Grade 9B">Grade 9B</option>
+                                <option value="Grade 10A">Grade 10A</option>
+                                <option value="Grade 10B">Grade 10B</option>
+                                <option value="Grade 11A">Grade 11A</option>
+                                <option value="Grade 11B">Grade 11B</option>
+                                <option value="Grade 12A">Grade 12A</option>
+                                <option value="Grade 12B">Grade 12B</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="attendanceDate">Date *</label>
+                            <input type="date" id="attendanceDateInput" name="attendanceDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="attendance-list" id="attendanceList">
+                        <!-- Students will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="saveAttendanceBtn">Save Attendance</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/attendance.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
+
+

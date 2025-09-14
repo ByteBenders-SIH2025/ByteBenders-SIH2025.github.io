@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades - EduManage Pro</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduManage Pro</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                        <!-- <span class="badge" id="totalStudentsnav"></span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="teachers.html" class="nav-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Teachers</span>
+                        <!-- <span class="badge">89</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="classes.html" class="nav-link">
+                        <i class="fas fa-school"></i>
+                        <span>Classes</span>
+                        <!-- <span class="badge">45</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="subjects.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="grades.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Grades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="finance.html" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="logodefault.jpeg" alt="Admin">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Grades Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="gradeSearch" placeholder="Search by student name or subject...">
+                </div>
+                
+                <div class="filter-container">
+                    <select id="classFilter" class="filter-select">
+                        <option value="">All Classes</option>
+                        <option value="Grade 9A">Grade 9A</option>
+                        <option value="Grade 9B">Grade 9B</option>
+                        <option value="Grade 10A">Grade 10A</option>
+                        <option value="Grade 10B">Grade 10B</option>
+                        <option value="Grade 11A">Grade 11A</option>
+                        <option value="Grade 11B">Grade 11B</option>
+                        <option value="Grade 12A">Grade 12A</option>
+                        <option value="Grade 12B">Grade 12B</option>
+                    </select>
+                </div>
+                
+                <div class="filter-container">
+                    <select id="subjectFilter" class="filter-select">
+                        <option value="">All Subjects</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                        <option value="Physical Education">Physical Education</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" id="addGradeBtn">
+                    <i class="fas fa-plus"></i>
+                    Add Grade
+                </button>
+            </div>
+        </header>
+
+        <!-- Grades Content -->
+        <div class="page-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon grades">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="avgGrade"></h3>
+                        <p>Average Grade</p>
+                        <span class="stat-change positive">+2.1% this term</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon students">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalGrades"></h3>
+                        <p>Total Grades</p>
+                        <span class="stat-change positive">+156 this week</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon classes">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="passingRate"></h3>
+                        <p>Passing Rate</p>
+                        <span class="stat-change positive">+1.8% this month</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon teachers">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="excellentGrades"></h3>
+                        <p>Excellent Grades (A+)</p>
+                        <span class="stat-change positive">12.7% of total</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grades Tabs -->
+            <div class="grades-tabs">
+                <button class="tab-btn active" data-tab="gradebook">Gradebook</button>
+                <button class="tab-btn" data-tab="assignments">Assignments</button>
+                <button class="tab-btn" data-tab="exams">Exams</button>
+                <button class="tab-btn" data-tab="reports">Reports</button>
+            </div>
+
+            <!-- Gradebook Tab -->
+            <div class="tab-content active" id="gradebook">
+                <div class="gradebook-grid">
+                    <div class="gradebook-header">
+                        <h3>Gradebook</h3>
+                        <div class="gradebook-actions">
+                            <button class="btn btn-secondary" id="exportGradesBtn">
+                                <i class="fas fa-download"></i>
+                                Export
+                            </button>
+                            <button class="btn btn-secondary" id="bulkEditBtn">
+                                <i class="fas fa-edit"></i>
+                                Bulk Edit
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="gradebook-container" id="gradebookContainer">
+                        <!-- Gradebook will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignments Tab -->
+            <div class="tab-content" id="assignments">
+                <div class="assignments-section">
+                    <h3>Assignments & Assessments</h3>
+                    <div class="assignments-grid" id="assignmentsGrid">
+                        <!-- Assignments will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exams Tab -->
+            <div class="tab-content" id="exams">
+                <div class="exams-section">
+                    <h3>Examinations</h3>
+                    <div class="exams-grid" id="examsGrid">
+                        <!-- Exams will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div class="tab-content" id="reports">
+                <div class="reports-section">
+                    <h3>Grade Reports</h3>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Class Performance</h4>
+                                <p>Overall class performance analysis</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Student Report Card</h4>
+                                <p>Individual student grade report</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Subject Analysis</h4>
+                                <p>Subject-wise performance report</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Top Performers</h4>
+                                <p>Highest achieving students</p>
+                                <button class="btn btn-primary">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Grade Modal -->
+    <div class="modal" id="gradeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Grade</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="gradeForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student">Student *</label>
+                            <select id="student" name="student" required>
+                                <option value="">Select Student</option>
+                                <option value="STU001">John Smith - Grade 12A</option>
+                                <option value="STU002">Emma Wilson - Grade 11B</option>
+                                <option value="STU003">Michael Rodriguez - Grade 10C</option>
+                                <option value="STU004">Sarah Johnson - Grade 9A</option>
+                                <option value="STU005">James Brown - Grade 12B</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                                <option value="History">History</option>
+                                <option value="Physical Education">Physical Education</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="assignmentType">Assignment Type *</label>
+                            <select id="assignmentType" name="assignmentType" required>
+                                <option value="">Select Type</option>
+                                <option value="Homework">Homework</option>
+                                <option value="Quiz">Quiz</option>
+                                <option value="Test">Test</option>
+                                <option value="Project">Project</option>
+                                <option value="Exam">Exam</option>
+                                <option value="Participation">Participation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="assignmentName">Assignment Name *</label>
+                            <input type="text" id="assignmentName" name="assignmentName" placeholder="e.g., Chapter 5 Quiz" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="maxPoints">Max Points *</label>
+                            <input type="number" id="maxPoints" name="maxPoints" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="earnedPoints">Earned Points *</label>
+                            <input type="number" id="earnedPoints" name="earnedPoints" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gradeDate">Grade Date *</label>
+                            <input type="date" id="gradeDate" name="gradeDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="term">Term *</label>
+                            <select id="term" name="term" required>
+                                <option value="">Select Term</option>
+                                <option value="Q1">Quarter 1</option>
+                                <option value="Q2">Quarter 2</option>
+                                <option value="Q3">Quarter 3</option>
+                                <option value="Q4">Quarter 4</option>
+                                <option value="Final">Final</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comments">Comments</label>
+                        <textarea id="comments" name="comments" rows="3" placeholder="Optional comments about the grade"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="saveGradeBtn">Save Grade</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grade Details Modal -->
+    <div class="modal" id="gradeDetailsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Grade Details</h3>
+                <button class="modal-close" id="closeDetailsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="grade-profile">
+                    <div class="profile-header">
+                        <div class="grade-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="detailStudentName">John Smith</h2>
+                            <p id="detailSubject">Mathematics - Grade 12A</p>
+                            <p id="detailAssignment">Chapter 5 Quiz</p>
+                            <div class="profile-badges">
+                                <span class="badge grade" id="detailGrade">A+</span>
+                                <span class="badge points" id="detailPoints">95/100</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="overview">Overview</button>
+                        <button class="tab-btn" data-tab="history">Grade History</button>
+                        <button class="tab-btn" data-tab="analysis">Analysis</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="overview">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Assignment Type:</label>
+                                    <span id="detailAssignmentType">Quiz</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Grade Date:</label>
+                                    <span id="detailGradeDate">December 15, 2023</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Term:</label>
+                                    <span id="detailTerm">Quarter 2</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Max Points:</label>
+                                    <span id="detailMaxPoints">100</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Earned Points:</label>
+                                    <span id="detailEarnedPoints">95</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Percentage:</label>
+                                    <span id="detailPercentage">95%</span>
+                                </div>
+                                <div class="info-item full-width">
+                                    <label>Comments:</label>
+                                    <span id="detailComments">Excellent work! Shows strong understanding of the concepts.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="history">
+                            <div class="grade-history">
+                                <h4>Grade History for Mathematics</h4>
+                                <div class="history-list" id="gradeHistoryList">
+                                    <!-- Grade history will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="analysis">
+                            <div class="grade-analysis">
+                                <h4>Performance Analysis</h4>
+                                <div class="analysis-stats">
+                                    <div class="analysis-stat">
+                                        <span class="stat-label">Class Average:</span>
+                                        <span class="stat-value">87.3%</span>
+                                    </div>
+                                    <div class="analysis-stat">
+                                        <span class="stat-label">Student Rank:</span>
+                                        <span class="stat-value">3rd of 28</span>
+                                    </div>
+                                    <div class="analysis-stat">
+                                        <span class="stat-label">Improvement:</span>
+                                        <span class="stat-value">+5.2%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="editGradeBtn">Edit Grade</button>
+                <button type="button" class="btn btn-primary" id="printReportBtn">Print Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <!-- <div class="overlay" id="overlay"></div> -->
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/grades.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - EduManage Pro</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduManage Pro</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                        <!-- <span class="badge" id="totalStudentsnav"></span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="teachers.html" class="nav-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Teachers</span>
+                        <!-- <span class="badge">89</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="classes.html" class="nav-link">
+                        <i class="fas fa-school"></i>
+                        <span>Classes</span>
+                        <!-- <span class="badge">45</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="subjects.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Grades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="finance.html" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="reports.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="logodefault.jpeg" alt="Admin">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Reports & Analytics</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="filter-container">
+                    <select id="reportPeriod" class="filter-select">
+                        <option value="current">Current Month</option>
+                        <option value="last">Last Month</option>
+                        <option value="quarter">This Quarter</option>
+                        <option value="year">This Year</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                </div>
+                
+                <div class="filter-container">
+                    <select id="reportType" class="filter-select">
+                        <option value="all">All Reports</option>
+                        <option value="academic">Academic</option>
+                        <option value="financial">Financial</option>
+                        <option value="attendance">Attendance</option>
+                        <option value="performance">Performance</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" id="generateReportBtn">
+                    <i class="fas fa-download"></i>
+                    Generate Report
+                </button>
+            </div>
+        </header>
+
+        <!-- Reports Content -->
+        <div class="page-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon reports">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalReports">24</h3>
+                        <p>Reports Generated</p>
+                        <span class="stat-change positive">+3 this week</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon analytics">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="dataPoints">15,678</h3>
+                        <p>Data Points Analyzed</p>
+                        <span class="stat-change positive">Real-time updates</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon insights">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="insights">12</h3>
+                        <p>Key Insights</p>
+                        <span class="stat-change positive">AI-powered analysis</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon accuracy">
+                        <i class="fas fa-target"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="accuracy">98.5%</h3>
+                        <p>Report Accuracy</p>
+                        <span class="stat-change positive">High precision</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tabs -->
+            <div class="reports-tabs">
+                <button class="tab-btn active" data-tab="overview">Overview</button>
+                <button class="tab-btn" data-tab="academic">Academic Reports</button>
+                <button class="tab-btn" data-tab="financial">Financial Reports</button>
+                <button class="tab-btn" data-tab="custom">Custom Reports</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="overview-container">
+                    <div class="overview-header">
+                        <h3>Report Overview</h3>
+                        <div class="overview-actions">
+                            <button class="btn btn-secondary" id="refreshDataBtn">
+                                <i class="fas fa-sync"></i>
+                                Refresh Data
+                            </button>
+                            <button class="btn btn-secondary" id="exportAllBtn">
+                                <i class="fas fa-download"></i>
+                                Export All
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-grid">
+                        <div class="chart-container">
+                            <h4>Academic Performance Trends</h4>
+                            <canvas id="performanceChart" width="400" height="200"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h4>Attendance Overview</h4>
+                            <canvas id="attendanceChart" width="400" height="200"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h4>Financial Summary</h4>
+                            <canvas id="financialChart" width="400" height="200"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h4>Student Distribution</h4>
+                            <canvas id="distributionChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Reports Tab -->
+            <div class="tab-content" id="academic">
+                <div class="academic-reports-container">
+                    <div class="academic-header">
+                        <h3>Academic Reports</h3>
+                    </div>
+                    
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Student Performance Report</h4>
+                                <p>Comprehensive analysis of student academic performance across all subjects and grades.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Academic</span>
+                                    <span class="report-frequency">Monthly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('student-performance')">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Grade Analysis Report</h4>
+                                <p>Detailed breakdown of grade distributions and trends across different subjects.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Academic</span>
+                                    <span class="report-frequency">Quarterly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('grade-analysis')">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Subject Performance Report</h4>
+                                <p>Analysis of subject-wise performance and teacher effectiveness metrics.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Academic</span>
+                                    <span class="report-frequency">Monthly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('subject-performance')">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Top Performers Report</h4>
+                                <p>Identification and analysis of top-performing students and classes.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Academic</span>
+                                    <span class="report-frequency">Monthly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('top-performers')">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Reports Tab -->
+            <div class="tab-content" id="financial">
+                <div class="financial-reports-container">
+                    <div class="financial-header">
+                        <h3>Financial Reports</h3>
+                    </div>
+                    
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Revenue Report</h4>
+                                <p>Comprehensive analysis of school revenue streams and financial performance.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Financial</span>
+                                    <span class="report-frequency">Monthly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('revenue')">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Fee Collection Report</h4>
+                                <p>Analysis of fee collection rates, outstanding payments, and collection trends.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Financial</span>
+                                    <span class="report-frequency">Weekly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('fee-collection')">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Expense Analysis Report</h4>
+                                <p>Breakdown of school expenses by category and department.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Financial</span>
+                                    <span class="report-frequency">Monthly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('expense-analysis')">Generate</button>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="report-content">
+                                <h4>Budget vs Actual Report</h4>
+                                <p>Comparison of budgeted vs actual expenses and revenue.</p>
+                                <div class="report-meta">
+                                    <span class="report-type">Financial</span>
+                                    <span class="report-frequency">Monthly</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="generateReport('budget-actual')">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Reports Tab -->
+            <div class="tab-content" id="custom">
+                <div class="custom-reports-container">
+                    <div class="custom-header">
+                        <h3>Custom Reports</h3>
+                        <button class="btn btn-primary" id="createCustomReportBtn">
+                            <i class="fas fa-plus"></i>
+                            Create Custom Report
+                        </button>
+                    </div>
+                    
+                    <div class="custom-reports-grid" id="customReportsGrid">
+                        <!-- Custom reports will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Custom Report Modal -->
+    <div class="modal" id="customReportModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Create Custom Report</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="customReportForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reportName">Report Name *</label>
+                            <input type="text" id="reportName" name="reportName" placeholder="e.g., Monthly Student Analysis" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reportCategory">Category *</label>
+                            <select id="reportCategory" name="reportCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="Academic">Academic</option>
+                                <option value="Financial">Financial</option>
+                                <option value="Attendance">Attendance</option>
+                                <option value="Performance">Performance</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reportFrequency">Frequency *</label>
+                            <select id="reportFrequency" name="reportFrequency" required>
+                                <option value="">Select Frequency</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="Quarterly">Quarterly</option>
+                                <option value="Yearly">Yearly</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reportFormat">Format *</label>
+                            <select id="reportFormat" name="reportFormat" required>
+                                <option value="">Select Format</option>
+                                <option value="PDF">PDF</option>
+                                <option value="Excel">Excel</option>
+                                <option value="CSV">CSV</option>
+                                <option value="HTML">HTML</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reportDescription">Description</label>
+                        <textarea id="reportDescription" name="reportDescription" rows="3" placeholder="Describe what this report will contain"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Data Sources *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="dataSources" value="students">
+                                <span>Student Data</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="dataSources" value="grades">
+                                <span>Grade Data</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="dataSources" value="attendance">
+                                <span>Attendance Data</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="dataSources" value="finance">
+                                <span>Financial Data</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="saveCustomReportBtn">Create Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <!-- <div class="overlay" id="overlay"></div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/reports.js"></script>
+    
+</body>
+</html>
+
+

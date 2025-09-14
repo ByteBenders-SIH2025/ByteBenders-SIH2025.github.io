@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects - EduManage Pro</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduManage Pro</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                        <!-- <span class="badge" id="totalStudentsnav"></span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="teachers.html" class="nav-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Teachers</span>
+                        <!-- <span class="badge">89</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="classes.html" class="nav-link">
+                        <i class="fas fa-school"></i>
+                        <span>Classes</span>
+                        <!-- <span class="badge">45</span> -->
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="subjects.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Grades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="finance.html" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="logodefault.jpeg" alt="Admin">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Subjects Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="subjectSearch" placeholder="Search subjects by name or code...">
+                </div>
+                
+                <div class="filter-container">
+                    <select id="departmentFilter" class="filter-select">
+                        <option value="">All Departments</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                        <option value="Physical Education">Physical Education</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Computer Science">Computer Science</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" id="addSubjectBtn">
+                    <i class="fas fa-plus"></i>
+                    Add Subject
+                </button>
+            </div>
+        </header>
+
+        <!-- Subjects Content -->
+        <div class="page-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon subjects">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalSubjects"></h3>
+                        <p>Total Subjects</p>
+                        <span class="stat-change positive">+2 this semester</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon teachers">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="activeSubjects"></h3>
+                        <p>Active Subjects</p>
+                        <span class="stat-change positive">91.7% active</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon classes">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="avgClassesPerSubject"></h3>
+                        <p>Avg Classes per Subject</p>
+                        <span class="stat-change neutral">Well distributed</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon students">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalEnrollments"></h3>
+                        <p>Total Enrollments</p>
+                        <span class="stat-change positive">+8% this term</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subjects Grid -->
+            <div class="subjects-grid">
+                <div class="subjects-header">
+                    <h3>Subject Directory</h3>
+                    <div class="view-controls">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <button class="view-btn" data-view="curriculum">
+                            <i class="fas fa-sitemap"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="subjects-container" id="subjectsContainer">
+                    <!-- Subjects will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Subject Modal -->
+    <div class="modal" id="subjectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Subject</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="subjectForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subjectName">Subject Name *</label>
+                            <input type="text" id="subjectName" name="subjectName" placeholder="e.g., Advanced Mathematics" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subjectCode">Subject Code *</label>
+                            <input type="text" id="subjectCode" name="subjectCode" placeholder="e.g., MATH101" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department *</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                                <option value="History">History</option>
+                                <option value="Physical Education">Physical Education</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Computer Science">Computer Science</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="credits">Credits *</label>
+                            <input type="number" id="credits" name="credits" min="1" max="10" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gradeLevel">Grade Level *</label>
+                            <select id="gradeLevel" name="gradeLevel" required>
+                                <option value="">Select Grade Level</option>
+                                <option value="Grade 9">Grade 9</option>
+                                <option value="Grade 10">Grade 10</option>
+                                <option value="Grade 11">Grade 11</option>
+                                <option value="Grade 12">Grade 12</option>
+                                <option value="All Grades">All Grades</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status *</label>
+                            <select id="status" name="status" required>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                                <option value="Archived">Archived</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="teacher">Assigned Teacher *</label>
+                            <select id="teacher" name="teacher" required>
+                                <option value="">Select Teacher</option>
+                                <option value="TCH001">John Smith - Mathematics</option>
+                                <option value="TCH002">Sarah Johnson - Science</option>
+                                <option value="TCH003">Michael Brown - English</option>
+                                <option value="TCH004">Emily Davis - History</option>
+                                <option value="TCH005">David Wilson - Physical Education</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="maxStudents">Max Students</label>
+                            <input type="number" id="maxStudents" name="maxStudents" min="1" max="50">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Subject description and objectives" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prerequisites">Prerequisites</label>
+                        <input type="text" id="prerequisites" name="prerequisites" placeholder="e.g., Basic Mathematics, Algebra I">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="saveSubjectBtn">Save Subject</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subject Details Modal -->
+    <div class="modal" id="subjectDetailsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Subject Details</h3>
+                <button class="modal-close" id="closeDetailsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="subject-profile">
+                    <div class="profile-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="detailSubjectName">Advanced Mathematics</h2>
+                            <p id="detailSubjectCode">Subject Code: MATH101</p>
+                            <p id="detailDepartment">Department: Mathematics</p>
+                            <div class="profile-badges">
+                                <span class="badge status" id="detailStatus">Active</span>
+                                <span class="badge credits" id="detailCredits">4 Credits</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="overview">Overview</button>
+                        <button class="tab-btn" data-tab="curriculum">Curriculum</button>
+                        <button class="tab-btn" data-tab="classes">Classes</button>
+                        <button class="tab-btn" data-tab="students">Students</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="overview">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Grade Level:</label>
+                                    <span id="detailGradeLevel">Grade 12</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Credits:</label>
+                                    <span id="detailCreditsValue">4</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Teacher:</label>
+                                    <span id="detailTeacher">John Smith</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Max Students:</label>
+                                    <span id="detailMaxStudents">30</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Current Enrollments:</label>
+                                    <span id="detailCurrentStudents">28</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Academic Year:</label>
+                                    <span id="detailAcademicYear">2023-2024</span>
+                                </div>
+                                <div class="info-item full-width">
+                                    <label>Description:</label>
+                                    <span id="detailDescription">Advanced topics in mathematics including calculus, linear algebra, and statistics.</span>
+                                </div>
+                                <div class="info-item full-width">
+                                    <label>Prerequisites:</label>
+                                    <span id="detailPrerequisites">Basic Mathematics, Algebra I, Geometry</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="curriculum">
+                            <div class="curriculum-info">
+                                <h4>Course Curriculum</h4>
+                                <div class="curriculum-sections">
+                                    <div class="curriculum-section">
+                                        <h5>Unit 1: Calculus Fundamentals</h5>
+                                        <ul>
+                                            <li>Limits and Continuity</li>
+                                            <li>Derivatives and Applications</li>
+                                            <li>Integration Techniques</li>
+                                        </ul>
+                                    </div>
+                                    <div class="curriculum-section">
+                                        <h5>Unit 2: Linear Algebra</h5>
+                                        <ul>
+                                            <li>Vector Spaces</li>
+                                            <li>Matrix Operations</li>
+                                            <li>Eigenvalues and Eigenvectors</li>
+                                        </ul>
+                                    </div>
+                                    <div class="curriculum-section">
+                                        <h5>Unit 3: Statistics and Probability</h5>
+                                        <ul>
+                                            <li>Descriptive Statistics</li>
+                                            <li>Probability Distributions</li>
+                                            <li>Hypothesis Testing</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="classes">
+                            <div class="classes-info">
+                                <h4>Classes Teaching This Subject</h4>
+                                <div class="classes-list" id="subjectClassesList">
+                                    <!-- Classes will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="students">
+                            <div class="students-info">
+                                <h4>Enrolled Students</h4>
+                                <div class="students-grid" id="subjectStudentsGrid">
+                                    <!-- Students will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="editSubjectBtn">Edit Subject</button>
+                <button type="button" class="btn btn-primary" id="printReportBtn">Print Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <!-- <div class="overlay" id="overlay"></div> -->
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/subjects.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
+
+

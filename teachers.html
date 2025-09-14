@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers - EduManage Pro</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduManage Pro</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                       <!-- <span class="badge"><p class="totalStudentsnav"></p ></span>  -->
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="teachers.html" class="nav-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Teachers</span>
+                        <!-- <span class="badge">89</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="classes.html" class="nav-link">
+                        <i class="fas fa-school"></i>
+                        <span>Classes</span>
+                        <!-- <span class="badge">45</span> -->
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="subjects.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Grades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="finance.html" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="logodefault.jpeg" alt="Admin">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Teachers Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="teacherSearch" placeholder="Search teachers by name, ID, or subject...">
+                </div>
+                
+                <div class="filter-container">
+                    <select id="departmentFilter" class="filter-select">
+                        <option value="">All Departments</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                        <option value="Physical Education">Physical Education</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Computer Science">Computer Science</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" id="addTeacherBtn">
+                    <i class="fas fa-plus"></i>
+                    Add Teacher
+                </button>
+            </div>
+        </header>
+
+        <!-- Teachers Content -->
+        <div class="page-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon teachers">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalTeachers">89</h3>
+                        <p>Total Teachers</p>
+                        <span class="stat-change positive">+3 this month</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon attendance">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="activeTeachers">85</h3>
+                        <p>Active Teachers</p>
+                        <span class="stat-change positive">95.5% active</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon classes">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="avgExperience">8.2</h3>
+                        <p>Avg Experience (Years)</p>
+                        <span class="stat-change positive">Highly experienced</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon students">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="avgRating">4.7</h3>
+                        <p>Average Rating</p>
+                        <span class="stat-change positive">Excellent</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teachers Grid -->
+            <div class="teachers-grid">
+                <div class="teachers-header">
+                    <h3>Faculty Directory</h3>
+                    <div class="view-controls">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="teachers-container" id="teachersContainer">
+                    <!-- Teachers will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Teacher Modal -->
+    <div class="modal" id="teacherModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Teacher</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="teacherForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="teacherId">Teacher ID *</label>
+                            <input type="text" id="teacherId" name="teacherId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employeeId">Employee ID *</label>
+                            <input type="text" id="employeeId" name="employeeId" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department *</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                                <option value="History">History</option>
+                                <option value="Physical Education">Physical Education</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Computer Science">Computer Science</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position *</label>
+                            <select id="position" name="position" required>
+                                <option value="">Select Position</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Senior Teacher">Senior Teacher</option>
+                                <option value="Head of Department">Head of Department</option>
+                                <option value="Vice Principal">Vice Principal</option>
+                                <option value="Principal">Principal</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth *</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hireDate">Hire Date *</label>
+                            <input type="date" id="hireDate" name="hireDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary">Salary *</label>
+                            <input type="number" id="salary" name="salary" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qualifications">Qualifications *</label>
+                        <textarea id="qualifications" name="qualifications" rows="3" placeholder="e.g., B.Ed, M.A. Mathematics, Ph.D. Physics" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subjects">Subjects Taught *</label>
+                        <input type="text" id="subjects" name="subjects" placeholder="e.g., Mathematics, Algebra, Calculus" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="saveTeacherBtn">Save Teacher</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teacher Details Modal -->
+    <div class="modal" id="teacherDetailsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Teacher Profile</h3>
+                <button class="modal-close" id="closeDetailsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="teacher-profile">
+                    <div class="profile-header">
+                        <div class="profile-photo">
+                            <img id="detailPhoto" src="logodefault.jpeg" alt="Teacher Photo">
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="detailName">Dr. John Smith</h2>
+                            <p id="detailPosition">Head of Mathematics Department</p>
+                            <p id="detailId">Teacher ID: TCH001</p>
+                            <div class="profile-badges">
+                                <span class="badge experience">8 Years Experience</span>
+                                <span class="badge rating">4.8★ Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="personal">Personal Info</button>
+                        <button class="tab-btn" data-tab="professional">Professional</button>
+                        <button class="tab-btn" data-tab="schedule">Schedule</button>
+                        <button class="tab-btn" data-tab="performance">Performance</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="personal">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Email:</label>
+                                    <span id="detailEmail">john.smith@school.edu</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Phone:</label>
+                                    <span id="detailPhone">+1 234 567 8900</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Date of Birth:</label>
+                                    <span id="detailDob">January 15, 1985</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Gender:</label>
+                                    <span id="detailGender">Male</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Address:</label>
+                                    <span id="detailAddress">123 Main St, City, State 12345</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Emergency Contact:</label>
+                                    <span id="detailEmergencyContact">Jane Smith - +1 234 567 8901</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="professional">
+                            <div class="professional-info">
+                                <h4>Professional Information</h4>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Department:</label>
+                                        <span id="detailDepartment">Mathematics</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Position:</label>
+                                        <span id="detailPosition">Head of Department</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Hire Date:</label>
+                                        <span id="detailHireDate">September 1, 2015</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Salary:</label>
+                                        <span id="detailSalary">$75,000</span>
+                                    </div>
+                                    <div class="info-item full-width">
+                                        <label>Qualifications:</label>
+                                        <span id="detailQualifications">Ph.D. in Mathematics, M.Ed. in Education, B.Sc. in Mathematics</span>
+                                    </div>
+                                    <div class="info-item full-width">
+                                        <label>Subjects Taught:</label>
+                                        <span id="detailSubjects">Advanced Mathematics, Calculus, Algebra, Statistics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="schedule">
+                            <div class="schedule-info">
+                                <h4>Current Schedule</h4>
+                                <div class="schedule-grid">
+                                    <div class="schedule-day">
+                                        <h5>Monday</h5>
+                                        <div class="schedule-classes">
+                                            <div class="schedule-class">
+                                                <span class="time">9:00 AM - 10:00 AM</span>
+                                                <span class="subject">Grade 12A - Calculus</span>
+                                            </div>
+                                            <div class="schedule-class">
+                                                <span class="time">11:00 AM - 12:00 PM</span>
+                                                <span class="subject">Grade 11B - Algebra</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="schedule-day">
+                                        <h5>Tuesday</h5>
+                                        <div class="schedule-classes">
+                                            <div class="schedule-class">
+                                                <span class="time">9:00 AM - 10:00 AM</span>
+                                                <span class="subject">Grade 10A - Mathematics</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="performance">
+                            <div class="performance-info">
+                                <h4>Performance Metrics</h4>
+                                <div class="performance-stats">
+                                    <div class="performance-stat">
+                                        <span class="stat-label">Overall Rating:</span>
+                                        <span class="stat-value">4.8/5.0</span>
+                                    </div>
+                                    <div class="performance-stat">
+                                        <span class="stat-label">Classes Taught:</span>
+                                        <span class="stat-value">12</span>
+                                    </div>
+                                    <div class="performance-stat">
+                                        <span class="stat-label">Students:</span>
+                                        <span class="stat-value">180</span>
+                                    </div>
+                                    <div class="performance-stat">
+                                        <span class="stat-label">Attendance Rate:</span>
+                                        <span class="stat-value">98.5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="editTeacherBtn">Edit Teacher</button>
+                <button type="button" class="btn btn-primary" id="printReportBtn">Print Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <!-- <div class="overlay" id="overlay"></div> -->
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/teachers.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
+
+
