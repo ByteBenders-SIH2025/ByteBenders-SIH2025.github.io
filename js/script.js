@@ -163,11 +163,11 @@ const simulateLogin = (email, password) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             // Simulate different scenarios
-            if (email === 'admin@school.edu' && password === 'password123') {
+            if (email === 'admin@school.com' && password === 'password123') {
                 resolve({ success: true, user: { name: 'Admin User', role: 'Administrator' } });
-            } else if (email === 'teacher@school.edu' && password === 'teacher123') {
+            } else if (email === 'teacher@school.com' && password === 'teacher123') {
                 resolve({ success: true, user: { name: 'Teacher User', role: 'Teacher' } });
-            } else if (email === 'student@school.edu' && password === 'student123') {
+            } else if (email === 'student@school.com' && password === 'student123') {
                 resolve({ success: true, user: { name: 'Student User', role: 'Student' } });
             } else {
                 reject(new Error('Invalid email or password'));
@@ -372,9 +372,9 @@ demoCredentials.innerHTML = `
         max-width: 300px;
     ">
         <strong>Demo Credentials:</strong><br>
-        Admin: admin@school.edu / password123<br>
-        Teacher: teacher@school.edu / teacher123<br>
-        Student: student@school.edu / student123
+        Admin: admin@school.com / password123<br>
+        Teacher: teacher@school.com / teacher123<br>
+        Student: student@school.com / student123
     </div>
 `;
 document.body.appendChild(demoCredentials);
@@ -390,7 +390,7 @@ setTimeout(() => {
 
 console.log('EduConnect Login System Initialized');
 console.log('Available demo accounts:');
-console.log('- Admin: admin@school.edu / password123');
-console.log('- Teacher: teacher@school.edu / teacher123');
-console.log('- Student: student@school.edu / student123');
+console.log('- Admin: admin@school.com / password123');
+console.log('- Teacher: teacher@school.com / teacher123');
+console.log('- Student: student@school.com / student123');
 
