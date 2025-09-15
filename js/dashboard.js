@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize Dashboard
 function initializeDashboard() {
-    console.log('EduManage Pro Dashboard Initialized');
+    console.log('EduConnect Dashboard Initialized');
     
     // Check if user is logged in
     const user = getCurrentUser();

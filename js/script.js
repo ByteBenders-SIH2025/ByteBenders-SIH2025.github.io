@@ -388,7 +388,7 @@ setTimeout(() => {
     }, 500);
 }, 10000);
 
-console.log('EduManage Pro Login System Initialized');
+console.log('EduConnect Login System Initialized');
 console.log('Available demo accounts:');
 console.log('- Admin: admin@school.edu / password123');
 console.log('- Teacher: teacher@school.edu / teacher123');
