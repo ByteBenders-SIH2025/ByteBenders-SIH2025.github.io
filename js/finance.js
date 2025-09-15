@@ -57,7 +57,7 @@ const transactionsData = [
     {
         id: 'TXN001',
         studentId: 'STU001',
-        studentName: 'John Smith',
+        studentName: 'Rahul',
         type: 'Tuition Fee',
         amount: 2500.00,
         date: '2023-12-15',
@@ -69,7 +69,7 @@ const transactionsData = [
     {
         id: 'TXN002',
         studentId: 'STU002',
-        studentName: 'Emma Wilson',
+        studentName: 'Sheetal',
         type: 'Exam Fee',
         amount: 150.00,
         date: '2023-12-14',
@@ -81,7 +81,7 @@ const transactionsData = [
     {
         id: 'TXN003',
         studentId: 'STU003',
-        studentName: 'Michael Rodriguez',
+        studentName: 'Vijay',
         type: 'Tuition Fee',
         amount: 2500.00,
         date: '2023-12-10',
@@ -93,7 +93,7 @@ const transactionsData = [
     {
         id: 'TXN004',
         studentId: 'STU004',
-        studentName: 'Sarah Johnson',
+        studentName: 'Rasmi',
         type: 'Library Fee',
         amount: 75.00,
         date: '2023-12-08',
@@ -105,7 +105,7 @@ const transactionsData = [
     {
         id: 'TXN005',
         studentId: 'STU005',
-        studentName: 'James Brown',
+        studentName: 'Shubham',
         type: 'Transport Fee',
         amount: 300.00,
         date: '2023-12-12',

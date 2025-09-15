@@ -9,7 +9,7 @@ const classesData = [
         grade: 'Grade 12',
         section: 'A',
         classTeacher: 'TCH001',
-        teacherName: 'John Smith',
+        teacherName: 'Rahul',
         roomNumber: 'Room 101',
         maxStudents: 30,
         currentStudents: 28,
@@ -20,24 +20,24 @@ const classesData = [
         subjects: ['Mathematics', 'Physics', 'Chemistry', 'English'],
         schedule: {
             'Monday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'Mathematics', teacher: 'John Smith' },
-                { time: '11:00 AM - 12:00 PM', subject: 'Physics', teacher: 'Sarah Johnson' }
+                { time: '9:00 AM - 10:00 AM', subject: 'Mathematics', teacher: 'Suneel' },
+                { time: '11:00 AM - 12:00 PM', subject: 'Physics', teacher: 'Aditya' }
             ],
             'Tuesday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'Chemistry', teacher: 'Sarah Johnson' },
-                { time: '2:00 PM - 3:00 PM', subject: 'English', teacher: 'Michael Brown' }
+                { time: '9:00 AM - 10:00 AM', subject: 'Chemistry', teacher: 'Abhishek' },
+                { time: '2:00 PM - 3:00 PM', subject: 'English', teacher: 'Vibhay' }
             ],
             'Wednesday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'Mathematics', teacher: 'John Smith' },
-                { time: '11:00 AM - 12:00 PM', subject: 'Physics', teacher: 'Sarah Johnson' }
+                { time: '9:00 AM - 10:00 AM', subject: 'Mathematics', teacher: 'Samay' },
+                { time: '11:00 AM - 12:00 PM', subject: 'Physics', teacher: 'Sarita' }
             ],
             'Thursday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'Chemistry', teacher: 'Sarah Johnson' },
-                { time: '2:00 PM - 3:00 PM', subject: 'English', teacher: 'Michael Brown' }
+                { time: '9:00 AM - 10:00 AM', subject: 'Chemistry', teacher: 'Aadi' },
+                { time: '2:00 PM - 3:00 PM', subject: 'English', teacher: 'sunita' }
             ],
             'Friday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'Mathematics', teacher: 'John Smith' },
-                { time: '11:00 AM - 12:00 PM', subject: 'Physics', teacher: 'Sarah Johnson' }
+                { time: '9:00 AM - 10:00 AM', subject: 'Mathematics', teacher: 'aarush' },
+                { time: '11:00 AM - 12:00 PM', subject: 'Physics', teacher: 'aaru' }
             ]
         }
     },
@@ -48,7 +48,7 @@ const classesData = [
         grade: 'Grade 11',
         section: 'B',
         classTeacher: 'TCH002',
-        teacherName: 'Sarah Johnson',
+        teacherName: 'Rasmi',
         roomNumber: 'Room 102',
         maxStudents: 25,
         currentStudents: 24,
@@ -59,24 +59,24 @@ const classesData = [
         subjects: ['Biology', 'Chemistry', 'Mathematics', 'English'],
         schedule: {
             'Monday': [
-                { time: '10:00 AM - 11:00 AM', subject: 'Biology', teacher: 'Sarah Johnson' },
-                { time: '1:00 PM - 2:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '10:00 AM - 11:00 AM', subject: 'Biology', teacher: 'Rasmi' },
+                { time: '1:00 PM - 2:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Tuesday': [
-                { time: '10:00 AM - 11:00 AM', subject: 'Chemistry', teacher: 'Sarah Johnson' },
-                { time: '1:00 PM - 2:00 PM', subject: 'English', teacher: 'Michael Brown' }
+                { time: '10:00 AM - 11:00 AM', subject: 'Chemistry', teacher: 'Rasmi' },
+                { time: '1:00 PM - 2:00 PM', subject: 'English', teacher: 'Rajat' }
             ],
             'Wednesday': [
-                { time: '10:00 AM - 11:00 AM', subject: 'Biology', teacher: 'Sarah Johnson' },
-                { time: '1:00 PM - 2:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '10:00 AM - 11:00 AM', subject: 'Biology', teacher: 'Rasmi' },
+                { time: '1:00 PM - 2:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Thursday': [
-                { time: '10:00 AM - 11:00 AM', subject: 'Chemistry', teacher: 'Sarah Johnson' },
-                { time: '1:00 PM - 2:00 PM', subject: 'English', teacher: 'Michael Brown' }
+                { time: '10:00 AM - 11:00 AM', subject: 'Chemistry', teacher: 'Rasmi' },
+                { time: '1:00 PM - 2:00 PM', subject: 'English', teacher: 'Rajat' }
             ],
             'Friday': [
-                { time: '10:00 AM - 11:00 AM', subject: 'Biology', teacher: 'Sarah Johnson' },
-                { time: '1:00 PM - 2:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '10:00 AM - 11:00 AM', subject: 'Biology', teacher: 'Rasmi' },
+                { time: '1:00 PM - 2:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ]
         }
     },
@@ -87,7 +87,7 @@ const classesData = [
         grade: 'Grade 10',
         section: 'C',
         classTeacher: 'TCH003',
-        teacherName: 'Michael Brown',
+        teacherName: 'Rajat',
         roomNumber: 'Room 103',
         maxStudents: 28,
         currentStudents: 26,
@@ -98,24 +98,24 @@ const classesData = [
         subjects: ['English', 'Mathematics', 'History', 'Science'],
         schedule: {
             'Monday': [
-                { time: '8:00 AM - 9:00 AM', subject: 'English', teacher: 'Michael Brown' },
-                { time: '12:00 PM - 1:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '8:00 AM - 9:00 AM', subject: 'English', teacher: 'Rajat' },
+                { time: '12:00 PM - 1:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Tuesday': [
-                { time: '8:00 AM - 9:00 AM', subject: 'History', teacher: 'Emily Davis' },
-                { time: '12:00 PM - 1:00 PM', subject: 'Science', teacher: 'Sarah Johnson' }
+                { time: '8:00 AM - 9:00 AM', subject: 'History', teacher: 'Ananaya' },
+                { time: '12:00 PM - 1:00 PM', subject: 'Science', teacher: 'Rasmi' }
             ],
             'Wednesday': [
-                { time: '8:00 AM - 9:00 AM', subject: 'English', teacher: 'Michael Brown' },
-                { time: '12:00 PM - 1:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '8:00 AM - 9:00 AM', subject: 'English', teacher: 'Rajat' },
+                { time: '12:00 PM - 1:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Thursday': [
-                { time: '8:00 AM - 9:00 AM', subject: 'History', teacher: 'Emily Davis' },
-                { time: '12:00 PM - 1:00 PM', subject: 'Science', teacher: 'Sarah Johnson' }
+                { time: '8:00 AM - 9:00 AM', subject: 'History', teacher: 'Ananaya' },
+                { time: '12:00 PM - 1:00 PM', subject: 'Science', teacher: 'Rasmi' }
             ],
             'Friday': [
-                { time: '8:00 AM - 9:00 AM', subject: 'English', teacher: 'Michael Brown' },
-                { time: '12:00 PM - 1:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '8:00 AM - 9:00 AM', subject: 'English', teacher: 'Rajat' },
+                { time: '12:00 PM - 1:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ]
         }
     },
@@ -126,7 +126,7 @@ const classesData = [
         grade: 'Grade 9',
         section: 'A',
         classTeacher: 'TCH004',
-        teacherName: 'Emily Davis',
+        teacherName: 'Ananaya',
         roomNumber: 'Room 104',
         maxStudents: 30,
         currentStudents: 29,
@@ -137,24 +137,24 @@ const classesData = [
         subjects: ['English', 'Mathematics', 'Science', 'History'],
         schedule: {
             'Monday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'English', teacher: 'Michael Brown' },
-                { time: '11:00 AM - 12:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '9:00 AM - 10:00 AM', subject: 'English', teacher: 'Rajat' },
+                { time: '11:00 AM - 12:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Tuesday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'Science', teacher: 'Sarah Johnson' },
-                { time: '11:00 AM - 12:00 PM', subject: 'History', teacher: 'Emily Davis' }
+                { time: '9:00 AM - 10:00 AM', subject: 'Science', teacher: 'Rasmi' },
+                { time: '11:00 AM - 12:00 PM', subject: 'History', teacher: 'Ananaya' }
             ],
             'Wednesday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'English', teacher: 'Michael Brown' },
-                { time: '11:00 AM - 12:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '9:00 AM - 10:00 AM', subject: 'English', teacher: 'Rajat' },
+                { time: '11:00 AM - 12:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Thursday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'Science', teacher: 'Sarah Johnson' },
-                { time: '11:00 AM - 12:00 PM', subject: 'History', teacher: 'Emily Davis' }
+                { time: '9:00 AM - 10:00 AM', subject: 'Science', teacher: 'Rasmi' },
+                { time: '11:00 AM - 12:00 PM', subject: 'History', teacher: 'Ananaya' }
             ],
             'Friday': [
-                { time: '9:00 AM - 10:00 AM', subject: 'English', teacher: 'Michael Brown' },
-                { time: '11:00 AM - 12:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '9:00 AM - 10:00 AM', subject: 'English', teacher: 'Rajat' },
+                { time: '11:00 AM - 12:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ]
         }
     },
@@ -165,7 +165,7 @@ const classesData = [
         grade: 'Grade 12',
         section: 'B',
         classTeacher: 'TCH005',
-        teacherName: 'David Wilson',
+        teacherName: 'Agrim',
         roomNumber: 'Room 105',
         maxStudents: 25,
         currentStudents: 23,
@@ -176,24 +176,24 @@ const classesData = [
         subjects: ['Physical Education', 'Sports Science', 'Health', 'Mathematics'],
         schedule: {
             'Monday': [
-                { time: '2:00 PM - 3:00 PM', subject: 'Physical Education', teacher: 'David Wilson' },
-                { time: '3:00 PM - 4:00 PM', subject: 'Sports Science', teacher: 'David Wilson' }
+                { time: '2:00 PM - 3:00 PM', subject: 'Physical Education', teacher: 'Agrim' },
+                { time: '3:00 PM - 4:00 PM', subject: 'Sports Science', teacher: 'Agrim' }
             ],
             'Tuesday': [
-                { time: '2:00 PM - 3:00 PM', subject: 'Health', teacher: 'David Wilson' },
-                { time: '3:00 PM - 4:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '2:00 PM - 3:00 PM', subject: 'Health', teacher: 'Agrim' },
+                { time: '3:00 PM - 4:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Wednesday': [
-                { time: '2:00 PM - 3:00 PM', subject: 'Physical Education', teacher: 'David Wilson' },
-                { time: '3:00 PM - 4:00 PM', subject: 'Sports Science', teacher: 'David Wilson' }
+                { time: '2:00 PM - 3:00 PM', subject: 'Physical Education', teacher: 'Agrim' },
+                { time: '3:00 PM - 4:00 PM', subject: 'Sports Science', teacher: 'Agrim' }
             ],
             'Thursday': [
-                { time: '2:00 PM - 3:00 PM', subject: 'Health', teacher: 'David Wilson' },
-                { time: '3:00 PM - 4:00 PM', subject: 'Mathematics', teacher: 'John Smith' }
+                { time: '2:00 PM - 3:00 PM', subject: 'Health', teacher: 'Agrim' },
+                { time: '3:00 PM - 4:00 PM', subject: 'Mathematics', teacher: 'Rahul' }
             ],
             'Friday': [
-                { time: '2:00 PM - 3:00 PM', subject: 'Physical Education', teacher: 'David Wilson' },
-                { time: '3:00 PM - 4:00 PM', subject: 'Sports Science', teacher: 'David Wilson' }
+                { time: '2:00 PM - 3:00 PM', subject: 'Physical Education', teacher: 'Agrim' },
+                { time: '3:00 PM - 4:00 PM', subject: 'Sports Science', teacher: 'Agrim' }
             ]
         }
     }
@@ -201,11 +201,11 @@ const classesData = [
 
 // Sample students data for class details
 const sampleStudents = [
-    { id: 'STU001', name: 'John Smith', photo: 'https://via.placeholder.com/40x40/2563eb/ffffff?text=JS' },
-    { id: 'STU002', name: 'Emma Wilson', photo: 'https://via.placeholder.com/40x40/10b981/ffffff?text=EW' },
-    { id: 'STU003', name: 'Michael Rodriguez', photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=MR' },
-    { id: 'STU004', name: 'Sarah Johnson', photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SJ' },
-    { id: 'STU005', name: 'James Brown', photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB' }
+    { id: 'STU001', name: 'Rahul', photo: 'https://via.placeholder.com/40x40/2563eb/ffffff?text=JS' },
+    { id: 'STU002', name: 'Sheetal', photo: 'https://via.placeholder.com/40x40/10b981/ffffff?text=EW' },
+    { id: 'STU003', name: 'Vijay', photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=MR' },
+    { id: 'STU004', name: 'Rasmi', photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SJ' },
+    { id: 'STU005', name: 'Shubham', photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB' }
 ];
 
 // State management

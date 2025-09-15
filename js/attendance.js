@@ -57,7 +57,7 @@ const attendanceData = [
     {
         id: 'ATT001',
         studentId: 'STU001',
-        studentName: 'John Smith',
+        studentName: 'Rahul',
         class: 'Grade 12A',
         date: '2023-12-15',
         status: 'Present',
@@ -68,7 +68,7 @@ const attendanceData = [
     {
         id: 'ATT002',
         studentId: 'STU002',
-        studentName: 'Emma Wilson',
+        studentName: 'Sheetal',
         class: 'Grade 11B',
         date: '2023-12-15',
         status: 'Present',
@@ -79,7 +79,7 @@ const attendanceData = [
     {
         id: 'ATT003',
         studentId: 'STU003',
-        studentName: 'Michael Rodriguez',
+        studentName: 'Vijay',
         class: 'Grade 10C',
         date: '2023-12-15',
         status: 'Late',
@@ -90,7 +90,7 @@ const attendanceData = [
     {
         id: 'ATT004',
         studentId: 'STU004',
-        studentName: 'Sarah Johnson',
+        studentName: 'Rasmi',
         class: 'Grade 9A',
         date: '2023-12-15',
         status: 'Absent',
@@ -101,7 +101,7 @@ const attendanceData = [
     {
         id: 'ATT005',
         studentId: 'STU005',
-        studentName: 'James Brown',
+        studentName: 'Shubham',
         class: 'Grade 12B',
         date: '2023-12-15',
         status: 'Present',
@@ -113,13 +113,13 @@ const attendanceData = [
 
 // Sample students data for attendance marking
 const studentsData = [
-    { id: 'STU001', name: 'John Smith', class: 'Grade 12A', photo: 'https://via.placeholder.com/40x40/2563eb/ffffff?text=JS' },
-    { id: 'STU002', name: 'Emma Wilson', class: 'Grade 11B', photo: 'https://via.placeholder.com/40x40/10b981/ffffff?text=EW' },
-    { id: 'STU003', name: 'Michael Rodriguez', class: 'Grade 10C', photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=MR' },
-    { id: 'STU004', name: 'Sarah Johnson', class: 'Grade 9A', photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SJ' },
-    { id: 'STU005', name: 'James Brown', class: 'Grade 12B', photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB' },
+    { id: 'STU001', name: 'Rahul', class: 'Grade 12A', photo: 'https://via.placeholder.com/40x40/2563eb/ffffff?text=JS' },
+    { id: 'STU002', name: 'Sheetal', class: 'Grade 11B', photo: 'https://via.placeholder.com/40x40/10b981/ffffff?text=EW' },
+    { id: 'STU003', name: 'Vijay', class: 'Grade 10C', photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=MR' },
+    { id: 'STU004', name: 'Rasmi', class: 'Grade 9A', photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SJ' },
+    { id: 'STU005', name: 'Shubham', class: 'Grade 12B', photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB' },
     { id: 'STU006', name: 'Lisa Davis', class: 'Grade 12A', photo: 'https://via.placeholder.com/40x40/06b6d4/ffffff?text=LD' },
-    { id: 'STU007', name: 'David Wilson', class: 'Grade 11B', photo: 'https://via.placeholder.com/40x40/84cc16/ffffff?text=DW' },
+    { id: 'STU007', name: 'Agrim', class: 'Grade 11B', photo: 'https://via.placeholder.com/40x40/84cc16/ffffff?text=DW' },
     { id: 'STU008', name: 'Maria Garcia', class: 'Grade 10C', photo: 'https://via.placeholder.com/40x40/f97316/ffffff?text=MG' }
 ];
 

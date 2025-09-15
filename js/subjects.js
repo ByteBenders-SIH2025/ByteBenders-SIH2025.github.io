@@ -63,7 +63,7 @@ const subjectsData = [
         gradeLevel: 'Grade 12',
         status: 'Active',
         teacher: 'TCH001',
-        teacherName: 'John Smith',
+        teacherName: 'Rahul',
         maxStudents: 30,
         currentStudents: 28,
         description: 'Advanced topics in mathematics including calculus, linear algebra, and statistics.',
@@ -93,7 +93,7 @@ const subjectsData = [
         gradeLevel: 'Grade 11',
         status: 'Active',
         teacher: 'TCH002',
-        teacherName: 'Sarah Johnson',
+        teacherName: 'Rasmi',
         maxStudents: 25,
         currentStudents: 24,
         description: 'Comprehensive study of physics principles including mechanics, thermodynamics, and electromagnetism.',
@@ -123,7 +123,7 @@ const subjectsData = [
         gradeLevel: 'Grade 10',
         status: 'Active',
         teacher: 'TCH003',
-        teacherName: 'Michael Brown',
+        teacherName: 'Rajat',
         maxStudents: 28,
         currentStudents: 26,
         description: 'Study of classic and contemporary English literature with focus on critical analysis.',
@@ -153,7 +153,7 @@ const subjectsData = [
         gradeLevel: 'Grade 9',
         status: 'Active',
         teacher: 'TCH004',
-        teacherName: 'Emily Davis',
+        teacherName: 'Ananaya',
         maxStudents: 30,
         currentStudents: 29,
         description: 'Comprehensive study of world history from ancient civilizations to modern times.',
@@ -183,7 +183,7 @@ const subjectsData = [
         gradeLevel: 'All Grades',
         status: 'Active',
         teacher: 'TCH005',
-        teacherName: 'David Wilson',
+        teacherName: 'Agrim',
         maxStudents: 25,
         currentStudents: 23,
         description: 'Physical fitness, sports, and health education for all grade levels.',
@@ -214,11 +214,11 @@ const sampleClasses = [
 ];
 
 const sampleStudents = [
-    { id: 'STU001', name: 'John Smith', photo: 'https://via.placeholder.com/40x40/2563eb/ffffff?text=JS' },
-    { id: 'STU002', name: 'Emma Wilson', photo: 'https://via.placeholder.com/40x40/10b981/ffffff?text=EW' },
-    { id: 'STU003', name: 'Michael Rodriguez', photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=MR' },
-    { id: 'STU004', name: 'Sarah Johnson', photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SJ' },
-    { id: 'STU005', name: 'James Brown', photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB' }
+    { id: 'STU001', name: 'Rahul', photo: 'https://via.placeholder.com/40x40/2563eb/ffffff?text=JS' },
+    { id: 'STU002', name: 'Sheetal', photo: 'https://via.placeholder.com/40x40/10b981/ffffff?text=EW' },
+    { id: 'STU003', name: 'Vijay', photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=MR' },
+    { id: 'STU004', name: 'Rasmi', photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SJ' },
+    { id: 'STU005', name: 'Shubham', photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB' }
 ];
 
 // State management

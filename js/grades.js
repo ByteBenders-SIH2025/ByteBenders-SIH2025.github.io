@@ -57,7 +57,7 @@ const gradesData = [
     {
         id: 'GRD001',
         studentId: 'STU001',
-        studentName: 'John Smith',
+        studentName: 'Rahul',
         class: 'Grade 12A',
         subject: 'Mathematics',
         assignmentType: 'Quiz',
@@ -69,12 +69,12 @@ const gradesData = [
         gradeDate: '2023-12-15',
         term: 'Q2',
         comments: 'Excellent work! Shows strong understanding of the concepts.',
-        teacher: 'John Smith'
+        teacher: 'Rahul'
     },
     {
         id: 'GRD002',
         studentId: 'STU002',
-        studentName: 'Emma Wilson',
+        studentName: 'Sheetal',
         class: 'Grade 11B',
         subject: 'Science',
         assignmentType: 'Test',
@@ -86,12 +86,12 @@ const gradesData = [
         gradeDate: '2023-12-14',
         term: 'Q2',
         comments: 'Good performance with room for improvement in problem-solving.',
-        teacher: 'Sarah Johnson'
+        teacher: 'Rasmi'
     },
     {
         id: 'GRD003',
         studentId: 'STU003',
-        studentName: 'Michael Rodriguez',
+        studentName: 'Vijay',
         class: 'Grade 10C',
         subject: 'English',
         assignmentType: 'Project',
@@ -103,12 +103,12 @@ const gradesData = [
         gradeDate: '2023-12-13',
         term: 'Q2',
         comments: 'Well-researched and well-written analysis.',
-        teacher: 'Michael Brown'
+        teacher: 'Rajat'
     },
     {
         id: 'GRD004',
         studentId: 'STU004',
-        studentName: 'Sarah Johnson',
+        studentName: 'Rasmi',
         class: 'Grade 9A',
         subject: 'History',
         assignmentType: 'Homework',
@@ -120,12 +120,12 @@ const gradesData = [
         gradeDate: '2023-12-12',
         term: 'Q2',
         comments: 'Good historical analysis with accurate facts.',
-        teacher: 'Emily Davis'
+        teacher: 'Ananaya'
     },
     {
         id: 'GRD005',
         studentId: 'STU005',
-        studentName: 'James Brown',
+        studentName: 'Shubham',
         class: 'Grade 12B',
         subject: 'Physical Education',
         assignmentType: 'Participation',
@@ -137,7 +137,7 @@ const gradesData = [
         gradeDate: '2023-12-11',
         term: 'Q2',
         comments: 'Active participation and good sportsmanship.',
-        teacher: 'David Wilson'
+        teacher: 'Agrim'
     }
 ];
 
