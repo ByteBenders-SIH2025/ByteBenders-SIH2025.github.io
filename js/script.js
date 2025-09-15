@@ -372,7 +372,7 @@ demoCredentials.innerHTML = `
         max-width: 300px;
     ">
         <strong>Demo Credentials:</strong><br>
-        Admin: admin@school.com / password123<br>
+        Admin: admin / 123<br>
         Teacher: teacher@school.com / teacher123<br>
         Student: student@school.com / student123
     </div>
