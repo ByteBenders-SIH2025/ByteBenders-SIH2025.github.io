@@ -163,7 +163,7 @@ const simulateLogin = (email, password) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             // Simulate different scenarios
-            if (email === 'admin@school.com' && password === 'password123') {
+            if (email === 'admin' && password === '123') {
                 resolve({ success: true, user: { name: 'Admin User', role: 'Administrator' } });
             } else if (email === 'teacher@school.com' && password === 'teacher123') {
                 resolve({ success: true, user: { name: 'Teacher User', role: 'Teacher' } });
