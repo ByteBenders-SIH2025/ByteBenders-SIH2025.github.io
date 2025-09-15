@@ -163,7 +163,7 @@ const simulateLogin = (email, password) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             // Simulate different scenarios
-            if (email === 'admin' && password === '123') {
+            if (email === 'admin@gmail.com' && password === '123') {
                 resolve({ success: true, user: { name: 'Admin User', role: 'Administrator' } });
             } else if (email === 'teacher@school.com' && password === 'teacher123') {
                 resolve({ success: true, user: { name: 'Teacher User', role: 'Teacher' } });
@@ -372,7 +372,7 @@ demoCredentials.innerHTML = `
         max-width: 300px;
     ">
         <strong>Demo Credentials:</strong><br>
-        Admin: admin / 123<br>
+        Admin: admin@gmail.com / 123<br>
         Teacher: teacher@school.com / teacher123<br>
         Student: student@school.com / student123
     </div>
@@ -390,7 +390,7 @@ setTimeout(() => {
 
 console.log('EduConnect Login System Initialized');
 console.log('Available demo accounts:');
-console.log('- Admin: admin@school.com / password123');
+console.log('- Admin: admin@gmail.com / 123');
 console.log('- Teacher: teacher@school.com / teacher123');
 console.log('- Student: student@school.com / student123');
 
