@@ -166,7 +166,7 @@ const studentsData = [
         parentPhone: '000000000',
         parentEmail: 'parent@email.com',
         admissionDate: '2019-09-01',
-        photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB'
+        photo: 'img/agrim.jpg'
     }
 ];
 
