@@ -533,11 +533,30 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+.team-section {
+    margin-bottom: var(--spacing-6);
+}
+
+.team-heading {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-4);
+    text-align: center;
+    color: var(--white);
+}
+
+.team-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-4);
+    flex-wrap: wrap;
+}
+
 .profile-photos {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--spacing-6);
     gap: -10px; /* Creates overlap effect */
 }
 
@@ -567,6 +586,26 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.team-info-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.team-info-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .side-content h2 {
