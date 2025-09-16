@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management - EduConnect</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduConnect</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="students.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Students</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="teachers.html" class="nav-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Teachers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="classes.html" class="nav-link">
+                        <i class="fas fa-school"></i>
+                        <span>Classes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="subjects.html" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="attendance.html" class="nav-link">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="grades.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Grades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="finance.html" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Finance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="hostel.html" class="nav-link">
+                        <i class="fas fa-bed"></i>
+                        <span>Hostel</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="library.html" class="nav-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>Library</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reports.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="img/logodefault.jpeg" alt="Admin">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Library Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="librarySearch" placeholder="Search books, authors, or ISBN...">
+                </div>
+                
+                <div class="filter-container">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="History">History</option>
+                        <option value="Literature">Literature</option>
+                        <option value="Reference">Reference</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" id="addBookBtn">
+                    <i class="fas fa-plus"></i>
+                    Add Book
+                </button>
+            </div>
+        </header>
+
+        <!-- Library Content -->
+        <div class="page-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon students">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalBooks">0</h3>
+                        <p>Total Books</p>
+                        <span class="stat-change positive">+25 this month</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon attendance">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="availableBooks">0</h3>
+                        <p>Available Books</p>
+                        <span class="stat-change positive">75% available</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon classes">
+                        <i class="fas fa-hand-holding"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="borrowedBooks">0</h3>
+                        <p>Borrowed Books</p>
+                        <span class="stat-change neutral">25% borrowed</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon teachers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="activeMembers">0</h3>
+                        <p>Active Members</p>
+                        <span class="stat-change positive">+12 this month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Issue Book</h4>
+                        <p>Issue books to students and staff</p>
+                        <button class="btn btn-primary btn-sm" onclick="openIssueBookModal()">
+                            Issue Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Return Book</h4>
+                        <p>Process book returns and renewals</p>
+                        <button class="btn btn-secondary btn-sm" onclick="openReturnBookModal()">
+                            Return Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Overdue Books</h4>
+                        <p>View and manage overdue books</p>
+                        <button class="btn btn-warning btn-sm" onclick="viewOverdueBooks()">
+                            View Overdue
+                        </button>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="action-content">
+                        <h4>Library Reports</h4>
+                        <p>Generate library usage reports</p>
+                        <button class="btn btn-info btn-sm" onclick="generateLibraryReport()">
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Books Table -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>Book Catalog</h3>
+                    <div class="table-actions">
+                        <button class="btn btn-secondary" id="exportBtn">
+                            <i class="fas fa-download"></i>
+                            Export
+                        </button>
+                        <button class="btn btn-secondary" id="importBtn">
+                            <i class="fas fa-upload"></i>
+                            Import
+                        </button>
+                        <button class="btn btn-secondary" id="bulkActionBtn">
+                            <i class="fas fa-tasks"></i>
+                            Bulk Actions
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-wrapper">
+                    <table class="data-table" id="booksTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="selectAll">
+                                </th>
+                                <th>ISBN</th>
+                                <th>Cover</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Available</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="booksTableBody">
+                            <!-- Books will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <span>Showing <span id="showingFrom">1</span> to <span id="showingTo">25</span> of <span id="totalRecords">0</span> entries</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="btn btn-secondary" id="prevPage" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Previous
+                        </button>
+                        <div class="page-numbers" id="pageNumbers">
+                            <!-- Page numbers will be generated here -->
+                        </div>
+                        <button class="btn btn-secondary" id="nextPage">
+                            Next
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Book Modal -->
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Book</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="bookForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="isbn">ISBN *</label>
+                            <input type="text" id="isbn" name="isbn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Title *</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="author">Author *</label>
+                            <input type="text" id="author" name="author" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="publisher">Publisher *</label>
+                            <input type="text" id="publisher" name="publisher" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Fiction">Fiction</option>
+                                <option value="Non-Fiction">Non-Fiction</option>
+                                <option value="Science">Science</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="History">History</option>
+                                <option value="Literature">Literature</option>
+                                <option value="Reference">Reference</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="publicationYear">Publication Year *</label>
+                            <input type="number" id="publicationYear" name="publicationYear" min="1900" max="2024" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="totalCopies">Total Copies *</label>
+                            <input type="number" id="totalCopies" name="totalCopies" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="availableCopies">Available Copies *</label>
+                            <input type="number" id="availableCopies" name="availableCopies" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="shelfLocation">Shelf Location *</label>
+                            <input type="text" id="shelfLocation" name="shelfLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status *</label>
+                            <select id="status" name="status" required>
+                                <option value="Available">Available</option>
+                                <option value="Unavailable">Unavailable</option>
+                                <option value="Maintenance">Under Maintenance</option>
+                                <option value="Lost">Lost</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="saveBookBtn">Save Book</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Issue Book Modal -->
+    <div class="modal" id="issueBookModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Issue Book</h3>
+                <button class="modal-close" id="closeIssueModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="issueBookForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="issueStudentId">Student/Staff ID *</label>
+                            <input type="text" id="issueStudentId" name="issueStudentId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="issueBookIsbn">Book ISBN *</label>
+                            <input type="text" id="issueBookIsbn" name="issueBookIsbn" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="issueDate">Issue Date *</label>
+                            <input type="date" id="issueDate" name="issueDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dueDate">Due Date *</label>
+                            <input type="date" id="dueDate" name="dueDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="issueNotes">Notes</label>
+                        <textarea id="issueNotes" name="issueNotes" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelIssueBtn">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="confirmIssueBtn">Issue Book</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Details Modal -->
+    <div class="modal" id="bookDetailsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Book Details</h3>
+                <button class="modal-close" id="closeBookDetailsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="book-profile">
+                    <div class="profile-header">
+                        <div class="profile-photo">
+                            <img id="detailBookCover" src="https://via.placeholder.com/120x160/2563eb/ffffff?text=Book" alt="Book Cover">
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="detailBookTitle">Book Title</h2>
+                            <p id="detailBookAuthor">Author Name</p>
+                            <p id="detailBookIsbn">ISBN: 1234567890</p>
+                            <span class="status-badge" id="detailBookStatus">Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="details">Book Details</button>
+                        <button class="tab-btn" data-tab="copies">Copies</button>
+                        <button class="tab-btn" data-tab="borrowers">Borrowers</button>
+                        <button class="tab-btn" data-tab="history">History</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="details">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Publisher:</label>
+                                    <span id="detailPublisher">Publisher Name</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Category:</label>
+                                    <span id="detailCategory">Fiction</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Publication Year:</label>
+                                    <span id="detailPublicationYear">2023</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Shelf Location:</label>
+                                    <span id="detailShelfLocation">A-1-15</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Total Copies:</label>
+                                    <span id="detailTotalCopies">5</span>
+                                </div>
+                                <div class="info-item">
+                                    <label>Available Copies:</label>
+                                    <span id="detailAvailableCopies">3</span>
+                                </div>
+                            </div>
+                            <div class="info-item full-width">
+                                <label>Description:</label>
+                                <span id="detailDescription">Book description goes here...</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="copies">
+                            <div class="copies-list">
+                                <h4>Book Copies</h4>
+                                <div class="copy-item">
+                                    <span class="copy-id">Copy #1</span>
+                                    <span class="copy-status available">Available</span>
+                                    <span class="copy-location">Shelf A-1-15</span>
+                                </div>
+                                <div class="copy-item">
+                                    <span class="copy-id">Copy #2</span>
+                                    <span class="copy-status borrowed">Borrowed</span>
+                                    <span class="copy-borrower">John Doe</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="borrowers">
+                            <div class="borrowers-list">
+                                <h4>Current Borrowers</h4>
+                                <div class="borrower-item">
+                                    <span class="borrower-name">John Doe</span>
+                                    <span class="borrower-id">STU001</span>
+                                    <span class="borrower-due">Due: Dec 15, 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="history">
+                            <div class="history-list">
+                                <h4>Borrowing History</h4>
+                                <div class="history-item">
+                                    <span class="history-borrower">Jane Smith</span>
+                                    <span class="history-date">Nov 1 - Nov 15, 2023</span>
+                                    <span class="history-status returned">Returned</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="editBookBtn">Edit Book</button>
+                <button type="button" class="btn btn-primary" id="issueBookFromDetailsBtn">Issue Book</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/library.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-// Students Management JavaScript
+// Hostel Management JavaScript
 
 // Utility Functions
 function getCurrentUser() {
@@ -65,22 +65,20 @@ function showNotification(message, type = 'info') {
 }
 
 // Sample data
-const studentsData = [
+const residentsData = [
     {
         id: 'STU001',
         firstName: 'Ajay',
         lastName: 'Verma',
         email: 'ajayverma@school.com',
         phone: '6393149489',
-        class: 'Grade 11B',
+        block: 'Block A',
+        roomNumber: '101',
+        bedNumber: 'Bed 1',
         status: 'Active',
-        dateOfBirth: '2006-03-22',
-        gender: 'Male',
-        address: 'Lucknow',
-        parentName: 'Savit Ram',
-        parentPhone: '00000000000',
-        parentEmail: 'parent@email.com',
-        admissionDate: '2021-09-01',
+        checkInDate: '2023-09-01',
+        emergencyContact: 'Savit Ram',
+        emergencyPhone: '00000000000',
         photo: 'img/Ajay.jpg'
     },
     {
@@ -89,15 +87,13 @@ const studentsData = [
         lastName: 'Pathak',
         email: 'sp@school.com',
         phone: '9140951883',
-        class: 'Grade 12A',
+        block: 'Block B',
+        roomNumber: '205',
+        bedNumber: 'Bed 2',
         status: 'Active',
-        dateOfBirth: '2005-01-15',
-        gender: 'Male',
-        address: 'Lucknow',
-        parentName: 'Anand Pathak',
-        parentPhone: '0000000000',
-        parentEmail: 'anand@email.com',
-        admissionDate: '2020-09-01',
+        checkInDate: '2023-09-01',
+        emergencyContact: 'Anand Pathak',
+        emergencyPhone: '0000000000',
         photo: 'img/siddhant.jpg'
     },
     {
@@ -106,16 +102,14 @@ const studentsData = [
         lastName: 'Yadav',
         email: 'kanisha@school.com',
         phone: '0000000000',
-        class: 'Grade 10C',
+        block: 'Block C',
+        roomNumber: '301',
+        bedNumber: 'Bed 1',
         status: 'Active',
-        dateOfBirth: '2007-07-10',
-        gender: 'Female',
-        address: 'Lucknow',
-        parentName: 'Mr. Yadav',
-        parentPhone: '0000000000',
-        parentEmail: 'abc@gmail.com',
-        admissionDate: '2022-09-01',
-        photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=MR'
+        checkInDate: '2023-09-01',
+        emergencyContact: 'Mr. Yadav',
+        emergencyPhone: '0000000000',
+        photo: 'https://via.placeholder.com/40x40/f59e0b/ffffff?text=KY'
     },
     {
         id: 'STU004',
@@ -123,16 +117,14 @@ const studentsData = [
         lastName: 'Shahi',
         email: 'ss@school.com',
         phone: '00000000000',
-        class: 'Grade 9A',
+        block: 'Block A',
+        roomNumber: '102',
+        bedNumber: 'Bed 3',
         status: 'Active',
-        dateOfBirth: '2008-11-05',
-        gender: 'Female',
-        address: 'Lucknow',
-        parentName: '........',
-        parentPhone: '00000000000',
-        parentEmail: 'parent@email.com',
-        admissionDate: '2023-09-01',
-        photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SJ'
+        checkInDate: '2023-09-01',
+        emergencyContact: '........',
+        emergencyPhone: '00000000000',
+        photo: 'https://via.placeholder.com/40x40/8b5cf6/ffffff?text=SS'
     },
     {
         id: 'STU005',
@@ -140,75 +132,54 @@ const studentsData = [
         lastName: 'Yadav',
         email: 'Vy@school.com',
         phone: '0000000000',
-        class: 'Grade 12B',
+        block: 'Block B',
+        roomNumber: '206',
+        bedNumber: 'Bed 4',
         status: 'Graduated',
-        dateOfBirth: '2004-12-18',
-        gender: 'Female',
-        address: '00000000000',
-        parentName: '..........',
-        parentPhone: '000000000',
-        parentEmail: 'parent@email.com',
-        admissionDate: '2019-09-01',
-        photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB'
-    },
-    {
-        id: 'STU006',
-        firstName: 'Agrim',
-        lastName: 'Verma',
-        email: 'av@school.com',
-        phone: '0000000000',
-        class: 'Grade 12B',
-        status: 'Graduated',
-        dateOfBirth: '2004-12-18',
-        gender: 'Male',
-        address: '00000000000',
-        parentName: '..........',
-        parentPhone: '000000000',
-        parentEmail: 'parent@email.com',
-        admissionDate: '2019-09-01',
-        photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=JB'
+        checkInDate: '2022-09-01',
+        emergencyContact: '..........',
+        emergencyPhone: '000000000',
+        photo: 'https://via.placeholder.com/40x40/ef4444/ffffff?text=VY'
     }
 ];
 
 // State management
 let currentPage = 1;
 let itemsPerPage = 25;
-let filteredStudents = [...studentsData];
-let selectedStudents = new Set();
+let filteredResidents = [...residentsData];
+let selectedResidents = new Set();
 
 // DOM Elements
-const studentsTableBody = document.getElementById('studentsTableBody');
-const studentSearch = document.getElementById('studentSearch');
-const classFilter = document.getElementById('classFilter');
-const addStudentBtn = document.getElementById('addStudentBtn');
-const studentModal = document.getElementById('studentModal');
-const studentDetailsModal = document.getElementById('studentDetailsModal');
-const studentForm = document.getElementById('studentForm');
+const residentsTableBody = document.getElementById('residentsTableBody');
+const hostelSearch = document.getElementById('hostelSearch');
+const blockFilter = document.getElementById('blockFilter');
+const addResidentBtn = document.getElementById('addResidentBtn');
+const residentModal = document.getElementById('residentModal');
+const residentDetailsModal = document.getElementById('residentDetailsModal');
+const residentForm = document.getElementById('residentForm');
 const selectAllCheckbox = document.getElementById('selectAll');
-const totalStudents = document.getElementById('totalStudents');
-// Removed reference to non-existent element
-const activeStudents = document.getElementById('activeStudents');
-const graduatingStudents = document.getElementById('graduatingStudents');
-const avgGrade = document.getElementById('avgGrade');
+const totalResidents = document.getElementById('totalResidents');
+const occupiedRooms = document.getElementById('occupiedRooms');
+const availableRooms = document.getElementById('availableRooms');
 
-// Initialize Students Page
+// Initialize Hostel Page
 document.addEventListener('DOMContentLoaded', function() {
-    initializeStudentsPage();
-    loadStudentsTable();
+    initializeHostelPage();
+    loadResidentsTable();
     updateStats();
     setupEventListeners();
     
     // Check for hash navigation
     if (window.location.hash === '#add') {
         setTimeout(() => {
-            openAddStudentModal();
+            openAddResidentModal();
         }, 100);
     }
 });
 
-// Initialize Students Page
-function initializeStudentsPage() {
-    console.log('Students Management Page Initialized');
+// Initialize Hostel Page
+function initializeHostelPage() {
+    console.log('Hostel Management Page Initialized');
     
     // Check if user is logged in
     const user = getCurrentUser();
@@ -224,25 +195,25 @@ function initializeStudentsPage() {
 // Setup Event Listeners
 function setupEventListeners() {
     // Search functionality
-    studentSearch.addEventListener('input', handleSearch);
+    hostelSearch.addEventListener('input', handleSearch);
     
     // Filter functionality
-    classFilter.addEventListener('change', handleFilter);
+    blockFilter.addEventListener('change', handleFilter);
     
-    // Add student button
-    addStudentBtn.addEventListener('click', openAddStudentModal);
+    // Add resident button
+    addResidentBtn.addEventListener('click', openAddResidentModal);
     
     // Modal controls
-    document.getElementById('closeModal').addEventListener('click', closeStudentModal);
-    document.getElementById('closeDetailsModal').addEventListener('click', closeStudentDetailsModal);
-    document.getElementById('cancelBtn').addEventListener('click', closeStudentModal);
-    document.getElementById('saveStudentBtn').addEventListener('click', saveStudent);
+    document.getElementById('closeModal').addEventListener('click', closeResidentModal);
+    document.getElementById('closeDetailsModal').addEventListener('click', closeResidentDetailsModal);
+    document.getElementById('cancelBtn').addEventListener('click', closeResidentModal);
+    document.getElementById('saveResidentBtn').addEventListener('click', saveResident);
     
     // Select all checkbox
     selectAllCheckbox.addEventListener('change', handleSelectAll);
     
     // Form submission
-    studentForm.addEventListener('submit', handleFormSubmit);
+    residentForm.addEventListener('submit', handleFormSubmit);
     
     // Tab functionality
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -253,53 +224,53 @@ function setupEventListeners() {
     document.getElementById('overlay').addEventListener('click', closeAllModals);
 }
 
-// Load Students Table
-function loadStudentsTable() {
+// Load Residents Table
+function loadResidentsTable() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const pageStudents = filteredStudents.slice(startIndex, endIndex);
+    const pageResidents = filteredResidents.slice(startIndex, endIndex);
     
-    studentsTableBody.innerHTML = '';
+    residentsTableBody.innerHTML = '';
     
-    pageStudents.forEach(student => {
-        const row = createStudentRow(student);
-        studentsTableBody.appendChild(row);
+    pageResidents.forEach(resident => {
+        const row = createResidentRow(resident);
+        residentsTableBody.appendChild(row);
     });
     
     updatePagination();
 }
 
-// Create Student Row
-function createStudentRow(student) {
+// Create Resident Row
+function createResidentRow(resident) {
     const row = document.createElement('tr');
     row.innerHTML = `
         <td>
-            <input type="checkbox" class="student-checkbox" value="${student.id}">
+            <input type="checkbox" class="resident-checkbox" value="${resident.id}">
         </td>
-        <td>${student.id}</td>
+        <td>${resident.id}</td>
         <td>
-            <img src="${student.photo}" alt="${student.firstName} ${student.lastName}" class="student-photo">
+            <img src="${resident.photo}" alt="${resident.firstName} ${resident.lastName}" class="resident-photo">
         </td>
         <td>
-            <div class="student-name">
-                <strong>${student.firstName} ${student.lastName}</strong>
+            <div class="resident-name">
+                <strong>${resident.firstName} ${resident.lastName}</strong>
             </div>
         </td>
-        <td>${student.class}</td>
-        <td>${student.email}</td>
-        <td>${student.phone}</td>
+        <td>${resident.roomNumber}</td>
+        <td>${resident.block}</td>
+        <td>${formatDate(resident.checkInDate)}</td>
         <td>
-            <span class="status-badge status-${student.status.toLowerCase()}">${student.status}</span>
+            <span class="status-badge status-${resident.status.toLowerCase()}">${resident.status}</span>
         </td>
         <td>
             <div class="action-buttons">
-                <button class="btn-icon" onclick="viewStudent('${student.id}')" title="View Details">
+                <button class="btn-icon" onclick="viewResident('${resident.id}')" title="View Details">
                     <i class="fas fa-eye"></i>
                 </button>
-                <button class="btn-icon" onclick="editStudent('${student.id}')" title="Edit">
+                <button class="btn-icon" onclick="editResident('${resident.id}')" title="Edit">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn-icon" onclick="deleteStudent('${student.id}')" title="Delete">
+                <button class="btn-icon" onclick="deleteResident('${resident.id}')" title="Delete">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
@@ -307,145 +278,146 @@ function createStudentRow(student) {
     `;
     
     // Add checkbox event listener
-    const checkbox = row.querySelector('.student-checkbox');
-    checkbox.addEventListener('change', handleStudentSelect);
+    const checkbox = row.querySelector('.resident-checkbox');
+    checkbox.addEventListener('change', handleResidentSelect);
     
     return row;
 }
 
 // Handle Search
 function handleSearch() {
-    const searchTerm = studentSearch.value.toLowerCase();
-    filteredStudents = studentsData.filter(student => 
-        student.firstName.toLowerCase().includes(searchTerm) ||
-        student.lastName.toLowerCase().includes(searchTerm) ||
-        student.id.toLowerCase().includes(searchTerm) ||
-        student.email.toLowerCase().includes(searchTerm) ||
-        student.class.toLowerCase().includes(searchTerm)
+    const searchTerm = hostelSearch.value.toLowerCase();
+    filteredResidents = residentsData.filter(resident => 
+        resident.firstName.toLowerCase().includes(searchTerm) ||
+        resident.lastName.toLowerCase().includes(searchTerm) ||
+        resident.id.toLowerCase().includes(searchTerm) ||
+        resident.email.toLowerCase().includes(searchTerm) ||
+        resident.roomNumber.toLowerCase().includes(searchTerm) ||
+        resident.block.toLowerCase().includes(searchTerm)
     );
     
     currentPage = 1;
-    loadStudentsTable();
+    loadResidentsTable();
     updateStats();
 }
 
 // Handle Filter
 function handleFilter() {
-    const selectedClass = classFilter.value;
+    const selectedBlock = blockFilter.value;
     
-    if (selectedClass) {
-        filteredStudents = studentsData.filter(student => student.class === selectedClass);
+    if (selectedBlock) {
+        filteredResidents = residentsData.filter(resident => resident.block === selectedBlock);
     } else {
-        filteredStudents = [...studentsData];
+        filteredResidents = [...residentsData];
     }
     
     currentPage = 1;
-    loadStudentsTable();
+    loadResidentsTable();
     updateStats();
 }
 
 // Handle Select All
 function handleSelectAll() {
-    const checkboxes = document.querySelectorAll('.student-checkbox');
+    const checkboxes = document.querySelectorAll('.resident-checkbox');
     checkboxes.forEach(checkbox => {
         checkbox.checked = selectAllCheckbox.checked;
         if (selectAllCheckbox.checked) {
-            selectedStudents.add(checkbox.value);
+            selectedResidents.add(checkbox.value);
         } else {
-            selectedStudents.delete(checkbox.value);
+            selectedResidents.delete(checkbox.value);
         }
     });
 }
 
-// Handle Student Select
-function handleStudentSelect(event) {
-    const studentId = event.target.value;
+// Handle Resident Select
+function handleResidentSelect(event) {
+    const residentId = event.target.value;
     
     if (event.target.checked) {
-        selectedStudents.add(studentId);
+        selectedResidents.add(residentId);
     } else {
-        selectedStudents.delete(studentId);
+        selectedResidents.delete(residentId);
     }
     
     // Update select all checkbox
-    const checkboxes = document.querySelectorAll('.student-checkbox');
-    const checkedCheckboxes = document.querySelectorAll('.student-checkbox:checked');
+    const checkboxes = document.querySelectorAll('.resident-checkbox');
+    const checkedCheckboxes = document.querySelectorAll('.resident-checkbox:checked');
     selectAllCheckbox.checked = checkboxes.length === checkedCheckboxes.length;
 }
 
-// Open Add Student Modal
-function openAddStudentModal() {
-    document.getElementById('modalTitle').textContent = 'Add New Student';
-    studentForm.reset();
-    studentModal.classList.add('show');
+// Open Add Resident Modal
+function openAddResidentModal() {
+    document.getElementById('modalTitle').textContent = 'Add New Resident';
+    residentForm.reset();
+    residentModal.classList.add('show');
     document.getElementById('overlay').classList.add('show');
     document.body.classList.add('modal-open');
 }
 
-// Close Student Modal
-function closeStudentModal() {
-    studentModal.classList.remove('show');
+// Close Resident Modal
+function closeResidentModal() {
+    residentModal.classList.remove('show');
     document.getElementById('overlay').classList.remove('show');
     document.body.classList.remove('modal-open');
 }
 
-// Close Student Details Modal
-function closeStudentDetailsModal() {
-    studentDetailsModal.classList.remove('show');
+// Close Resident Details Modal
+function closeResidentDetailsModal() {
+    residentDetailsModal.classList.remove('show');
     document.getElementById('overlay').classList.remove('show');
     document.body.classList.remove('modal-open');
 }
 
 // Close All Modals
 function closeAllModals() {
-    closeStudentModal();
-    closeStudentDetailsModal();
+    closeResidentModal();
+    closeResidentDetailsModal();
 }
 
 // Handle Form Submit
 function handleFormSubmit(event) {
     event.preventDefault();
-    saveStudent();
+    saveResident();
 }
 
-// Save Student
-function saveStudent() {
-    const formData = new FormData(studentForm);
-    const studentData = Object.fromEntries(formData);
+// Save Resident
+function saveResident() {
+    const formData = new FormData(residentForm);
+    const residentData = Object.fromEntries(formData);
     
     // Validate form
-    if (!validateStudentForm(studentData)) {
+    if (!validateResidentForm(residentData)) {
         return;
     }
     
-    // Generate student ID if adding new
-    if (!studentData.studentId || studentData.studentId === '') {
-        studentData.studentId = generateStudentId();
+    // Generate resident ID if adding new
+    if (!residentData.studentId || residentData.studentId === '') {
+        residentData.studentId = generateResidentId();
     }
     
     // Add photo URL
-    studentData.photo = `https://via.placeholder.com/40x40/2563eb/ffffff?text=${studentData.firstName[0]}${studentData.lastName[0]}`;
+    residentData.photo = `https://via.placeholder.com/40x40/2563eb/ffffff?text=${residentData.firstName[0]}${residentData.lastName[0]}`;
     
-    // Add to students data
-    const existingIndex = studentsData.findIndex(s => s.id === studentData.studentId);
+    // Add to residents data
+    const existingIndex = residentsData.findIndex(r => r.id === residentData.studentId);
     if (existingIndex >= 0) {
-        studentsData[existingIndex] = studentData;
-        showNotification('Student updated successfully', 'success');
+        residentsData[existingIndex] = residentData;
+        showNotification('Resident updated successfully', 'success');
     } else {
-        studentsData.push(studentData);
-        showNotification('Student added successfully', 'success');
+        residentsData.push(residentData);
+        showNotification('Resident added successfully', 'success');
     }
     
     // Refresh table
-    filteredStudents = [...studentsData];
-    loadStudentsTable();
+    filteredResidents = [...residentsData];
+    loadResidentsTable();
     updateStats();
-    closeStudentModal();
+    closeResidentModal();
 }
 
-// Validate Student Form
-function validateStudentForm(data) {
-    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'class', 'status', 'dateOfBirth', 'gender', 'address', 'parentName', 'parentPhone'];
+// Validate Resident Form
+function validateResidentForm(data) {
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'block', 'roomNumber', 'bedNumber', 'status', 'checkInDate', 'emergencyContact', 'emergencyPhone'];
     
     for (const field of requiredFields) {
         if (!data[field] || data[field].trim() === '') {
@@ -464,73 +436,73 @@ function validateStudentForm(data) {
     return true;
 }
 
-// Generate Student ID
-function generateStudentId() {
-    const lastId = studentsData.length > 0 ? 
-        Math.max(...studentsData.map(s => parseInt(s.id.replace('STU', '')))) : 0;
+// Generate Resident ID
+function generateResidentId() {
+    const lastId = residentsData.length > 0 ? 
+        Math.max(...residentsData.map(r => parseInt(r.id.replace('STU', '')))) : 0;
     return `STU${String(lastId + 1).padStart(3, '0')}`;
 }
 
-// View Student
-function viewStudent(studentId) {
-    const student = studentsData.find(s => s.id === studentId);
-    if (!student) return;
+// View Resident
+function viewResident(residentId) {
+    const resident = residentsData.find(r => r.id === residentId);
+    if (!resident) return;
     
-    // Populate student details
-    document.getElementById('detailPhoto').src = student.photo;
-    document.getElementById('detailName').textContent = `${student.firstName} ${student.lastName}`;
-    document.getElementById('detailClass').textContent = student.class;
-    document.getElementById('detailId').textContent = `Student ID: ${student.id}`;
-    document.getElementById('detailStatus').textContent = student.status;
-    document.getElementById('detailEmail').textContent = student.email;
-    document.getElementById('detailPhone').textContent = student.phone;
-    document.getElementById('detailDob').textContent = formatDate(student.dateOfBirth);
-    document.getElementById('detailGender').textContent = student.gender;
-    document.getElementById('detailAddress').textContent = student.address;
-    document.getElementById('detailParent').textContent = student.parentName;
-    document.getElementById('detailCurrentClass').textContent = student.class;
-    document.getElementById('detailAdmissionDate').textContent = formatDate(student.admissionDate);
-    document.getElementById('detailAcademicYear').textContent = '2023-2024';
+    // Populate resident details
+    document.getElementById('detailPhoto').src = resident.photo;
+    document.getElementById('detailName').textContent = `${resident.firstName} ${resident.lastName}`;
+    document.getElementById('detailRoom').textContent = `Room ${resident.roomNumber}, ${resident.block}`;
+    document.getElementById('detailId').textContent = `Student ID: ${resident.id}`;
+    document.getElementById('detailStatus').textContent = resident.status;
+    document.getElementById('detailEmail').textContent = resident.email;
+    document.getElementById('detailPhone').textContent = resident.phone;
+    document.getElementById('detailCheckIn').textContent = formatDate(resident.checkInDate);
+    document.getElementById('detailEmergencyContact').textContent = resident.emergencyContact;
+    document.getElementById('detailEmergencyPhone').textContent = resident.emergencyPhone;
+    document.getElementById('detailBlock').textContent = resident.block;
+    document.getElementById('detailRoomNumber').textContent = resident.roomNumber;
+    document.getElementById('detailBedNumber').textContent = resident.bedNumber;
+    document.getElementById('detailRoomType').textContent = 'Shared (4 beds)';
     
     // Update status badge class
     const statusBadge = document.getElementById('detailStatus');
-    statusBadge.className = `status-badge status-${student.status.toLowerCase()}`;
+    statusBadge.className = `status-badge status-${resident.status.toLowerCase()}`;
     
-    studentDetailsModal.classList.add('show');
+    residentDetailsModal.classList.add('show');
     document.getElementById('overlay').classList.add('show');
     document.body.classList.add('modal-open');
 }
 
-// Edit Student
-function editStudent(studentId) {
-    const student = studentsData.find(s => s.id === studentId);
-    if (!student) return;
+// Edit Resident
+function editResident(residentId) {
+    const resident = residentsData.find(r => r.id === residentId);
+    if (!resident) return;
     
-    document.getElementById('modalTitle').textContent = 'Edit Student';
+    document.getElementById('modalTitle').textContent = 'Edit Resident';
     
-    // Populate form with student data
-    Object.keys(student).forEach(key => {
+    // Populate form with resident data
+    Object.keys(resident).forEach(key => {
         const input = document.getElementById(key);
         if (input) {
-            input.value = student[key];
+            input.value = resident[key];
         }
     });
     
-    studentModal.classList.add('show');
+    residentModal.classList.add('show');
     document.getElementById('overlay').classList.add('show');
     document.body.classList.add('modal-open');
 }
 
-// Delete Student
-function deleteStudent(studentId) {
-    if (confirm('Are you sure you want to delete this student?')) {
-        const index = studentsData.findIndex(s => s.id === studentId);
+// Delete Resident
+function deleteResident(residentId) {
+    if (confirm('Are you sure you want to delete this resident?')) {
+        const index = residentsData.findIndex(r => r.id === residentId);
         if (index >= 0) {
-            studentsData.splice(index, 1);
-            filteredStudents = [...studentsData];
-            loadStudentsTable();
+            residentsData.splice(index, 1);
+            filteredResidents = [...residentsData];
+            loadResidentsTable();
             updateStats();
-            showNotification('Student deleted successfully', 'success');
+            showNotification('Resident deleted successfully', 'success');
         }
     }
 }
@@ -550,36 +522,33 @@ function handleTabClick(event) {
 
 // Update Stats
 function updateStats() {
-    if (totalStudents) {
-        totalStudents.textContent = filteredStudents.length.toLocaleString();
+    if (totalResidents) {
+        totalResidents.textContent = filteredResidents.length.toLocaleString();
     }
     
-    if (activeStudents) {
-        const activeCount = filteredStudents.filter(s => s.status === 'Active').length;
-        activeStudents.textContent = activeCount.toLocaleString();
+    if (occupiedRooms) {
+        const occupiedCount = filteredResidents.filter(r => r.status === 'Active').length;
+        occupiedRooms.textContent = occupiedCount.toLocaleString();
     }
     
-    if (graduatingStudents) {
-        const graduatingCount = filteredStudents.filter(s => s.class.includes('Grade 12')).length;
-        graduatingStudents.textContent = graduatingCount.toLocaleString();
-    }
-    
-    if (avgGrade) {
-        // Calculate average grade (mock data)
-        const avgGradeValue = (Math.random() * 20 + 80).toFixed(1);
-        avgGrade.textContent = `${avgGradeValue}%`;
+    if (availableRooms) {
+        // Calculate available rooms (mock data)
+        const totalRooms = 93; // Total rooms across all blocks
+        const occupiedCount = filteredResidents.filter(r => r.status === 'Active').length;
+        const availableCount = totalRooms - occupiedCount;
+        availableRooms.textContent = availableCount.toLocaleString();
     }
 }
 
 // Update Pagination
 function updatePagination() {
-    const totalPages = Math.ceil(filteredStudents.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredResidents.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage + 1;
-    const endIndex = Math.min(currentPage * itemsPerPage, filteredStudents.length);
+    const endIndex = Math.min(currentPage * itemsPerPage, filteredResidents.length);
     
     document.getElementById('showingFrom').textContent = startIndex;
     document.getElementById('showingTo').textContent = endIndex;
-    document.getElementById('totalRecords').textContent = filteredStudents.length.toLocaleString();
+    document.getElementById('totalRecords').textContent = filteredResidents.length.toLocaleString();
     
     // Update pagination buttons
     document.getElementById('prevPage').disabled = currentPage === 1;
@@ -608,7 +577,7 @@ function updatePagination() {
 // Go to Page
 function goToPage(page) {
     currentPage = page;
-    loadStudentsTable();
+    loadResidentsTable();
 }
 
 // Format Date
@@ -621,11 +590,107 @@ function formatDate(dateString) {
     });
 }
 
+// View Block Details
+function viewBlockDetails(block) {
+    showNotification(`Viewing details for Block ${block}`, 'info');
+    // This would open a detailed view of the specific block
+}
+
 // Add CSS for additional styles
 const additionalStyles = document.createElement('style');
 additionalStyles.textContent = `
     .page-content {
         padding: 2rem;
+    }
+    
+    .blocks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .block-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+    }
+    
+    .block-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    .block-header h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #111827;
+    }
+    
+    .block-status {
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    
+    .block-status.available {
+        background: #dcfce7;
+        color: #166534;
+    }
+    
+    .block-status.occupied {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+    
+    .block-status.maintenance {
+        background: #fef3c7;
+        color: #92400e;
+    }
+    
+    .block-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .block-stat {
+        text-align: center;
+        padding: 0.75rem;
+        background: #f9fafb;
+        border-radius: 0.5rem;
+    }
+    
+    .block-stat .stat-label {
+        display: block;
+        font-size: 0.75rem;
+        color: #6b7280;
+        margin-bottom: 0.25rem;
+    }
+    
+    .block-stat .stat-value {
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #111827;
+    }
+    
+    .block-actions {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
     }
     
     .table-container {
@@ -684,14 +749,14 @@ additionalStyles.textContent = `
         color: #6b7280;
     }
     
-    .student-photo {
+    .resident-photo {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
     }
     
-    .student-name strong {
+    .resident-name strong {
         color: #111827;
     }
     
@@ -947,7 +1012,7 @@ additionalStyles.textContent = `
         min-width: 150px;
     }
     
-    .student-profile {
+    .resident-profile {
         padding: 1rem;
     }
     
@@ -1024,6 +1089,10 @@ additionalStyles.textContent = `
         gap: 0.25rem;
     }
     
+    .info-item.full-width {
+        grid-column: 1 / -1;
+    }
+    
     .info-item label {
         font-size: 0.75rem;
         font-weight: 500;
@@ -1038,14 +1107,14 @@ additionalStyles.textContent = `
     }
     
     .attendance-stats,
-    .grades-stats {
+    .maintenance-stats {
         display: flex;
         gap: 2rem;
         margin-top: 1rem;
     }
     
     .attendance-stat,
-    .grade-stat {
+    .maintenance-stat {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1128,35 +1197,7 @@ additionalStyles.textContent = `
     .notification-close i {
         font-size: 12px;
     }
-    
-    /* Notification Container */
-    .notification-container {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        display: flex;
-        flex-direction: row;
-        gap: 12px;
-        max-width: calc(100vw - 40px);
-        overflow-x: auto;
-        pointer-events: none;
-        align-items: flex-start;
-        padding: 8px;
-        background: rgba(0, 0, 0, 0.05);
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-    }
-    
-    .notification-container .notification {
-        pointer-events: auto;
-        position: relative;
-        top: auto;
-        right: auto;
-        margin: 0;
-        flex-shrink: 0;
-    }
 `;
 document.head.appendChild(additionalStyles);
 
-console.log('Students Management JavaScript loaded successfully');
+console.log('Hostel Management JavaScript loaded successfully');

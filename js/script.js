@@ -353,6 +353,117 @@ style.textContent = `
         opacity: 0.7;
         cursor: not-allowed;
     }
+    
+    /* Demo Login Styles */
+    .demo-login-section {
+        margin-top: 1.5rem;
+    }
+    
+    .demo-divider {
+        position: relative;
+        text-align: center;
+        margin: 1.5rem 0 1rem 0;
+    }
+    
+    .demo-divider::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: #e5e7eb;
+    }
+    
+    .demo-divider span {
+        background: white;
+        padding: 0 1rem;
+        color: #6b7280;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    
+    .demo-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .demo-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        background: white;
+        color: #374151;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        text-decoration: none;
+    }
+    
+    .demo-btn:hover {
+        background: #f9fafb;
+        border-color: #9ca3af;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .demo-btn:active {
+        transform: translateY(0);
+    }
+    
+    .demo-btn i {
+        font-size: 1rem;
+    }
+    
+    .admin-demo {
+        border-color: #dc2626;
+        color: #dc2626;
+    }
+    
+    .admin-demo:hover {
+        background: #fef2f2;
+        border-color: #b91c1c;
+        color: #b91c1c;
+    }
+    
+    .teacher-demo {
+        border-color: #059669;
+        color: #059669;
+    }
+    
+    .teacher-demo:hover {
+        background: #f0fdf4;
+        border-color: #047857;
+        color: #047857;
+    }
+    
+    .student-demo {
+        border-color: #2563eb;
+        color: #2563eb;
+    }
+    
+    .student-demo:hover {
+        background: #eff6ff;
+        border-color: #1d4ed8;
+        color: #1d4ed8;
+    }
+    
+    @media (max-width: 640px) {
+        .demo-buttons {
+            gap: 0.5rem;
+        }
+        
+        .demo-btn {
+            padding: 0.625rem 0.875rem;
+            font-size: 0.8125rem;
+        }
+    }
 `;
 document.head.appendChild(style);
 
@@ -387,6 +498,57 @@ setTimeout(() => {
         demoCredentials.remove();
     }, 500);
 }, 10000);
+
+// Demo login function - Direct login
+function fillDemoCredentials(email, password) {
+    // Show loading state
+    loginBtn.classList.add('loading');
+    loginBtn.disabled = true;
+    btnLoader.classList.add('show');
+    
+    // Show a brief notification
+    const notification = document.createElement('div');
+    notification.className = 'demo-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Logging in with demo account...</span>
+        </div>
+    `;
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #3b82f6;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        animation: slideInRight 0.3s ease-out;
+        font-size: 14px;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Simulate login process
+    setTimeout(async () => {
+        try {
+            const userData = await simulateLogin(email, password);
+            showSuccessMessage(userData);
+            notification.remove();
+        } catch (error) {
+            showErrorMessage(error.message);
+            notification.remove();
+        } finally {
+            // Hide loading state
+            loginBtn.classList.remove('loading');
+            loginBtn.disabled = false;
+            btnLoader.classList.remove('show');
+        }
+    }, 1500); // 1.5 second delay to show loading
+}
 
 console.log('EduConnect Login System Initialized');
 console.log('Available demo accounts:');

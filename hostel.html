@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students - EduConnect</title>
+    <title>Hostel Management - EduConnect</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -29,25 +29,22 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="students.html" class="nav-link">
                         <i class="fas fa-users"></i>
                         <span>Students</span>
-                        <!-- <span class="badge"  ></span> -->
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="teachers.html" class="nav-link">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <span>Teachers</span>
-                        <!-- <span class="badge">89</span> -->
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="classes.html" class="nav-link">
                         <i class="fas fa-school"></i>
                         <span>Classes</span>
-                        <!-- <span class="badge">45</span> -->
                     </a>
                 </li>
                 <li class="nav-item">
@@ -80,7 +77,7 @@
                         <span>Finance</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="hostel.html" class="nav-link">
                         <i class="fas fa-bed"></i>
                         <span>Hostel</span>
@@ -110,7 +107,7 @@
         <div class="sidebar-footer">
             <div class="user-profile">
                 <div class="user-avatar">
-                    <img src="logodefault.jpeg" alt="Admin">
+                    <img src="img/logodefault.jpeg" alt="Admin">
                 </div>
                 <div class="user-info">
                     <div class="user-name">Admin User</div>
@@ -131,107 +128,214 @@
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
-                <h1 class="page-title">Students Management</h1>
+                <h1 class="page-title">Hostel Management</h1>
             </div>
             
             <div class="header-right">
                 <div class="search-container">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="studentSearch" placeholder="Search students by name, ID, or class...">
+                    <input type="text" id="hostelSearch" placeholder="Search residents, rooms, or blocks...">
                 </div>
                 
                 <div class="filter-container">
-                    <select id="classFilter" class="filter-select">
-                        <option value="">All Classes</option>
-                        <option value="Grade 9A">Grade 9A</option>
-                        <option value="Grade 9B">Grade 9B</option>
-                        <option value="Grade 10A">Grade 10A</option>
-                        <option value="Grade 10B">Grade 10B</option>
-                        <option value="Grade 11A">Grade 11A</option>
-                        <option value="Grade 11B">Grade 11B</option>
-                        <option value="Grade 12A">Grade 12A</option>
-                        <option value="Grade 12B">Grade 12B</option>
+                    <select id="blockFilter" class="filter-select">
+                        <option value="">All Blocks</option>
+                        <option value="Block A">Block A</option>
+                        <option value="Block B">Block B</option>
+                        <option value="Block C">Block C</option>
+                        <option value="Block D">Block D</option>
                     </select>
                 </div>
                 
-                <button class="btn btn-primary" id="addStudentBtn">
+                <button class="btn btn-primary" id="addResidentBtn">
                     <i class="fas fa-plus"></i>
-                    Add Student
+                    Add Resident
                 </button>
             </div>
         </header>
 
-        <!-- Students Content -->
+        <!-- Hostel Content -->
         <div class="page-content">
             <!-- Stats Cards -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon students">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-bed"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 id="totalStudents"></h3>
-                        <p>Total Students</p>
-                        <span class="stat-change positive">+12 this month</span>
+                        <h3 id="totalResidents">0</h3>
+                        <p>Total Residents</p>
+                        <span class="stat-change positive">+5 this month</span>
                     </div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon attendance">
-                        <i class="fas fa-calendar-check"></i>
+                        <i class="fas fa-home"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 id="activeStudents"></h3>
-                        <p>Active Students</p>
-                        <span class="stat-change positive">96.1% active</span>
+                        <h3 id="occupiedRooms">0</h3>
+                        <p>Occupied Rooms</p>
+                        <span class="stat-change positive">85% occupancy</span>
                     </div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon classes">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-door-open"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 id="graduatingStudents"></h3>
-                        <p>Graduating This Year</p>
-                        <span class="stat-change neutral">Grade 12</span>
+                        <h3 id="availableRooms">0</h3>
+                        <p>Available Rooms</p>
+                        <span class="stat-change neutral">15% available</span>
                     </div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-icon teachers">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-building"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 id="avgGrade"></h3>
-                        <p>Average Grade</p>
-                        <span class="stat-change positive">+2.1% this term</span>
+                        <h3 id="totalBlocks">4</h3>
+                        <p>Hostel Blocks</p>
+                        <span class="stat-change neutral">A, B, C, D</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Students Table -->
+            <!-- Hostel Blocks Overview -->
+            <div class="blocks-grid">
+                <div class="block-card">
+                    <div class="block-header">
+                        <h3>Block A</h3>
+                        <span class="block-status available">Available</span>
+                    </div>
+                    <div class="block-stats">
+                        <div class="block-stat">
+                            <span class="stat-label">Rooms:</span>
+                            <span class="stat-value">25</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Occupied:</span>
+                            <span class="stat-value">20</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Available:</span>
+                            <span class="stat-value">5</span>
+                        </div>
+                    </div>
+                    <div class="block-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="viewBlockDetails('A')">
+                            <i class="fas fa-eye"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="block-card">
+                    <div class="block-header">
+                        <h3>Block B</h3>
+                        <span class="block-status occupied">Fully Occupied</span>
+                    </div>
+                    <div class="block-stats">
+                        <div class="block-stat">
+                            <span class="stat-label">Rooms:</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Occupied:</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Available:</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="block-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="viewBlockDetails('B')">
+                            <i class="fas fa-eye"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="block-card">
+                    <div class="block-header">
+                        <h3>Block C</h3>
+                        <span class="block-status available">Available</span>
+                    </div>
+                    <div class="block-stats">
+                        <div class="block-stat">
+                            <span class="stat-label">Rooms:</span>
+                            <span class="stat-value">20</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Occupied:</span>
+                            <span class="stat-value">15</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Available:</span>
+                            <span class="stat-value">5</span>
+                        </div>
+                    </div>
+                    <div class="block-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="viewBlockDetails('C')">
+                            <i class="fas fa-eye"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="block-card">
+                    <div class="block-header">
+                        <h3>Block D</h3>
+                        <span class="block-status maintenance">Under Maintenance</span>
+                    </div>
+                    <div class="block-stats">
+                        <div class="block-stat">
+                            <span class="stat-label">Rooms:</span>
+                            <span class="stat-value">18</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Occupied:</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                        <div class="block-stat">
+                            <span class="stat-label">Available:</span>
+                            <span class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="block-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="viewBlockDetails('D')">
+                            <i class="fas fa-eye"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Residents Table -->
             <div class="table-container">
                 <div class="table-header">
-                    <h3>Student Records</h3>
+                    <h3>Resident Records</h3>
                     <div class="table-actions">
                         <button class="btn btn-secondary" id="exportBtn">
                             <i class="fas fa-download"></i>
                             Export
                         </button>
-                        <button class="btn btn-secondary" id="importBtn">
-                            <i class="fas fa-upload"></i>
-                            Import
+                        <button class="btn btn-secondary" id="roomAllocationBtn">
+                            <i class="fas fa-bed"></i>
+                            Room Allocation
                         </button>
-                        <button class="btn btn-secondary" id="bulkActionBtn">
-                            <i class="fas fa-tasks"></i>
-                            Bulk Actions
+                        <button class="btn btn-secondary" id="maintenanceBtn">
+                            <i class="fas fa-tools"></i>
+                            Maintenance
                         </button>
                     </div>
                 </div>
                 
                 <div class="table-wrapper">
-                    <table class="data-table" id="studentsTable">
+                    <table class="data-table" id="residentsTable">
                         <thead>
                             <tr>
                                 <th>
@@ -240,15 +344,15 @@
                                 <th>Student ID</th>
                                 <th>Photo</th>
                                 <th>Name</th>
-                                <th>Class</th>
-                                <th>Email</th>
-                                <th>Phone</th>
+                                <th>Room</th>
+                                <th>Block</th>
+                                <th>Check-in Date</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="studentsTableBody">
-                            <!-- Students will be loaded here -->
+                        <tbody id="residentsTableBody">
+                            <!-- Residents will be loaded here -->
                         </tbody>
                     </table>
                 </div>
@@ -256,7 +360,7 @@
                 <!-- Pagination -->
                 <div class="pagination">
                     <div class="pagination-info">
-                        <span>Showing <span id="showingFrom">1</span> to <span id="showingTo">25</span> of <span id="totalRecords">1,247</span> entries</span>
+                        <span>Showing <span id="showingFrom">1</span> to <span id="showingTo">25</span> of <span id="totalRecords">0</span> entries</span>
                     </div>
                     <div class="pagination-controls">
                         <button class="btn btn-secondary" id="prevPage" disabled>
@@ -276,25 +380,25 @@
         </div>
     </main>
 
-    <!-- Add/Edit Student Modal -->
-    <div class="modal" id="studentModal">
+    <!-- Add/Edit Resident Modal -->
+    <div class="modal" id="residentModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="modalTitle">Add New Student</h3>
+                <h3 id="modalTitle">Add New Resident</h3>
                 <button class="modal-close" id="closeModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="studentForm">
+                <form id="residentForm">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="studentId">Student ID *</label>
                             <input type="text" id="studentId" name="studentId" required>
                         </div>
                         <div class="form-group">
-                            <label for="admissionDate">Admission Date *</label>
-                            <input type="date" id="admissionDate" name="admissionDate" required>
+                            <label for="checkInDate">Check-in Date *</label>
+                            <input type="date" id="checkInDate" name="checkInDate" required>
                         </div>
                     </div>
                     
@@ -322,17 +426,30 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="class">Class *</label>
-                            <select id="class" name="class" required>
-                                <option value="">Select Class</option>
-                                <option value="Grade 9A">Grade 9A</option>
-                                <option value="Grade 9B">Grade 9B</option>
-                                <option value="Grade 10A">Grade 10A</option>
-                                <option value="Grade 10B">Grade 10B</option>
-                                <option value="Grade 11A">Grade 11A</option>
-                                <option value="Grade 11B">Grade 11B</option>
-                                <option value="Grade 12A">Grade 12A</option>
-                                <option value="Grade 12B">Grade 12B</option>
+                            <label for="block">Block *</label>
+                            <select id="block" name="block" required>
+                                <option value="">Select Block</option>
+                                <option value="Block A">Block A</option>
+                                <option value="Block B">Block B</option>
+                                <option value="Block C">Block C</option>
+                                <option value="Block D">Block D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomNumber">Room Number *</label>
+                            <input type="text" id="roomNumber" name="roomNumber" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bedNumber">Bed Number *</label>
+                            <select id="bedNumber" name="bedNumber" required>
+                                <option value="">Select Bed</option>
+                                <option value="Bed 1">Bed 1</option>
+                                <option value="Bed 2">Bed 2</option>
+                                <option value="Bed 3">Bed 3</option>
+                                <option value="Bed 4">Bed 4</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -346,69 +463,42 @@
                         </div>
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="dateOfBirth">Date of Birth *</label>
-                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Gender *</label>
-                            <select id="gender" name="gender" required>
-                                <option value="">Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="emergencyContact">Emergency Contact *</label>
+                        <input type="text" id="emergencyContact" name="emergencyContact" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="address">Address *</label>
-                        <textarea id="address" name="address" rows="3" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="parentName">Parent/Guardian Name *</label>
-                        <input type="text" id="parentName" name="parentName" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="parentPhone">Parent Phone *</label>
-                            <input type="tel" id="parentPhone" name="parentPhone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="parentEmail">Parent Email</label>
-                            <input type="email" id="parentEmail" name="parentEmail">
-                        </div>
+                        <label for="emergencyPhone">Emergency Phone *</label>
+                        <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
-                <button type="submit" class="btn btn-primary" id="saveStudentBtn">Save Student</button>
+                <button type="submit" class="btn btn-primary" id="saveResidentBtn">Save Resident</button>
             </div>
         </div>
     </div>
 
-    <!-- Student Details Modal -->
-    <div class="modal" id="studentDetailsModal">
+    <!-- Resident Details Modal -->
+    <div class="modal" id="residentDetailsModal">
         <div class="modal-content large">
             <div class="modal-header">
-                <h3>Student Details</h3>
+                <h3>Resident Details</h3>
                 <button class="modal-close" id="closeDetailsModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="student-profile">
+                <div class="resident-profile">
                     <div class="profile-header">
                         <div class="profile-photo">
-                            <img id="detailPhoto" src="logodefault.jpeg" alt="Student Photo">
+                            <img id="detailPhoto" src="img/logodefault.jpeg" alt="Resident Photo">
                         </div>
                         <div class="profile-info">
                             <h2 id="detailName">John Smith</h2>
-                            <p id="detailClass">Grade 12A</p>
+                            <p id="detailRoom">Room 101, Block A</p>
                             <p id="detailId">Student ID: STU001</p>
                             <span class="status-badge" id="detailStatus">Active</span>
                         </div>
@@ -416,9 +506,9 @@
                     
                     <div class="profile-tabs">
                         <button class="tab-btn active" data-tab="personal">Personal Info</button>
-                        <button class="tab-btn" data-tab="academic">Academic</button>
+                        <button class="tab-btn" data-tab="accommodation">Accommodation</button>
                         <button class="tab-btn" data-tab="attendance">Attendance</button>
-                        <button class="tab-btn" data-tab="grades">Grades</button>
+                        <button class="tab-btn" data-tab="maintenance">Maintenance</button>
                     </div>
                     
                     <div class="tab-content">
@@ -433,39 +523,39 @@
                                     <span id="detailPhone">+1 234 567 8900</span>
                                 </div>
                                 <div class="info-item">
-                                    <label>Date of Birth:</label>
-                                    <span id="detailDob">January 15, 2005</span>
+                                    <label>Check-in Date:</label>
+                                    <span id="detailCheckIn">September 1, 2023</span>
                                 </div>
                                 <div class="info-item">
-                                    <label>Gender:</label>
-                                    <span id="detailGender">Male</span>
+                                    <label>Emergency Contact:</label>
+                                    <span id="detailEmergencyContact">Jane Smith</span>
                                 </div>
                                 <div class="info-item">
-                                    <label>Address:</label>
-                                    <span id="detailAddress">123 Main St, City, State 12345</span>
-                                </div>
-                                <div class="info-item">
-                                    <label>Parent/Guardian:</label>
-                                    <span id="detailParent">Jane Smith</span>
+                                    <label>Emergency Phone:</label>
+                                    <span id="detailEmergencyPhone">+1 234 567 8901</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="tab-pane" id="academic">
-                            <div class="academic-info">
-                                <h4>Current Academic Year</h4>
+                        <div class="tab-pane" id="accommodation">
+                            <div class="accommodation-info">
+                                <h4>Current Accommodation</h4>
                                 <div class="info-grid">
                                     <div class="info-item">
-                                        <label>Class:</label>
-                                        <span id="detailCurrentClass">Grade 12A</span>
+                                        <label>Block:</label>
+                                        <span id="detailBlock">Block A</span>
                                     </div>
                                     <div class="info-item">
-                                        <label>Admission Date:</label>
-                                        <span id="detailAdmissionDate">September 1, 2020</span>
+                                        <label>Room Number:</label>
+                                        <span id="detailRoomNumber">101</span>
                                     </div>
                                     <div class="info-item">
-                                        <label>Academic Year:</label>
-                                        <span id="detailAcademicYear">2023-2024</span>
+                                        <label>Bed Number:</label>
+                                        <span id="detailBedNumber">Bed 1</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Room Type:</label>
+                                        <span id="detailRoomType">Shared (4 beds)</span>
                                     </div>
                                 </div>
                             </div>
@@ -473,35 +563,39 @@
                         
                         <div class="tab-pane" id="attendance">
                             <div class="attendance-summary">
-                                <h4>Attendance Summary</h4>
+                                <h4>Hostel Attendance</h4>
                                 <div class="attendance-stats">
                                     <div class="attendance-stat">
                                         <span class="stat-label">Present:</span>
-                                        <span class="stat-value">85%</span>
+                                        <span class="stat-value">95%</span>
                                     </div>
                                     <div class="attendance-stat">
                                         <span class="stat-label">Absent:</span>
-                                        <span class="stat-value">10%</span>
+                                        <span class="stat-value">3%</span>
                                     </div>
                                     <div class="attendance-stat">
                                         <span class="stat-label">Late:</span>
-                                        <span class="stat-value">5%</span>
+                                        <span class="stat-value">2%</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="tab-pane" id="grades">
-                            <div class="grades-summary">
-                                <h4>Academic Performance</h4>
-                                <div class="grades-stats">
-                                    <div class="grade-stat">
-                                        <span class="stat-label">Overall Average:</span>
-                                        <span class="stat-value">87.3%</span>
+                        <div class="tab-pane" id="maintenance">
+                            <div class="maintenance-summary">
+                                <h4>Maintenance Requests</h4>
+                                <div class="maintenance-stats">
+                                    <div class="maintenance-stat">
+                                        <span class="stat-label">Total Requests:</span>
+                                        <span class="stat-value">3</span>
                                     </div>
-                                    <div class="grade-stat">
-                                        <span class="stat-label">Rank:</span>
-                                        <span class="stat-value">15th of 120</span>
+                                    <div class="maintenance-stat">
+                                        <span class="stat-label">Resolved:</span>
+                                        <span class="stat-value">2</span>
+                                    </div>
+                                    <div class="maintenance-stat">
+                                        <span class="stat-label">Pending:</span>
+                                        <span class="stat-value">1</span>
                                     </div>
                                 </div>
                             </div>
@@ -510,7 +604,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="editStudentBtn">Edit Student</button>
+                <button type="button" class="btn btn-secondary" id="editResidentBtn">Edit Resident</button>
                 <button type="button" class="btn btn-primary" id="printReportBtn">Print Report</button>
             </div>
         </div>
@@ -519,9 +613,7 @@
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
- 
-
     <script src="js/dashboard.js"></script>
-    <script src="js/students.js"></script>
+    <script src="js/hostel.js"></script>
 </body>
 </html>
