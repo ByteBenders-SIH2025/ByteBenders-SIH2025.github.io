@@ -524,6 +524,15 @@ body {
     text-align: center;
 }
 
+.welcome-screenshot {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--spacing-2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    margin-bottom: var(--spacing-6);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
 .side-content h2 {
     font-size: var(--font-size-4xl);
     font-weight: 700;
