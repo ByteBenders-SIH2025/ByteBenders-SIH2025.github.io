@@ -10,19 +10,20 @@
     <style>
         .team-info-container {
             min-height: 100vh;
-            padding: var(--spacing-8) var(--spacing-4);
+            padding: var(--spacing-4);
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
         }
 
         .team-info-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-radius: var(--spacing-6);
-            padding: var(--spacing-8);
-            width: 70%;
-            max-width: 1200px;
+            padding: var(--spacing-10);
+            width: 95%;
+            max-width: none;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -45,20 +46,25 @@
         }
 
         .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-2);
             margin-bottom: var(--spacing-8);
+            width: 100%;
         }
 
         .team-member {
             background: var(--white);
-            border-radius: var(--spacing-4);
-            padding: var(--spacing-6);
+            border-radius: var(--spacing-6);
+            padding: var(--spacing-10);
             text-align: center;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid var(--gray-200);
+            flex: 1;
+            min-width: 0;
+            margin: 0 var(--spacing-1);
         }
 
         .team-member:hover {
@@ -70,10 +76,10 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            margin: 0 auto var(--spacing-4);
+            margin: 0 auto var(--spacing-5);
             overflow: hidden;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
         }
 
         .member-photo img {
@@ -86,7 +92,7 @@
             font-size: var(--font-size-xl);
             font-weight: 600;
             color: var(--gray-800);
-            margin-bottom: var(--spacing-2);
+            margin-bottom: var(--spacing-3);
         }
 
         .member-role {
@@ -94,6 +100,16 @@
             color: var(--primary-color);
             font-weight: 500;
             margin-bottom: var(--spacing-3);
+        }
+
+        .member-year {
+            font-size: var(--font-size-base);
+            color: var(--gray-500);
+            font-weight: 500;
+            background: rgba(37, 99, 235, 0.1);
+            padding: var(--spacing-3) var(--spacing-4);
+            border-radius: 20px;
+            display: inline-block;
         }
 
         .member-description {
@@ -148,14 +164,24 @@
         }
 
         @media (max-width: 768px) {
+            .team-info-container {
+                padding: var(--spacing-2);
+            }
+
             .team-info-card {
-                width: 95%;
+                width: 98%;
                 padding: var(--spacing-6);
             }
 
             .team-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-6);
+                flex-direction: column;
+                gap: var(--spacing-4);
+            }
+
+            .team-member {
+                min-width: auto;
+                width: 100%;
+                margin: 0;
             }
 
             .team-header h1 {
@@ -179,16 +205,9 @@
                         <img src="img/Ajay.jpg" alt="Ajay Verma">
                     </div>
                     <h3 class="member-name">Ajay Verma</h3>
-                    <p class="member-role">Lead Developer</p>
-                    <p class="member-description">
-                        Full-stack developer with 5+ years of experience in web technologies. 
-                        Passionate about creating innovative solutions for education.
-                    </p>
-                    <div class="member-social">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
+                    <p class="member-role">BTech CSE</p>
+                    <p class="member-year">2nd Year</p>
+                    
                 </div>
 
                 <!-- Team Member 2 -->
@@ -197,16 +216,8 @@
                         <img src="img/siddhant.jpg" alt="Siddhant">
                     </div>
                     <h3 class="member-name">Siddhant</h3>
-                    <p class="member-role">UI/UX Designer</p>
-                    <p class="member-description">
-                        Creative designer focused on user experience and interface design. 
-                        Expert in creating intuitive and beautiful educational platforms.
-                    </p>
-                    <div class="member-social">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
-                    </div>
+                    <p class="member-role">BTech CSE</p>
+                    <p class="member-year">2nd Year</p>
                 </div>
 
                 <!-- Team Member 3 -->
@@ -215,16 +226,8 @@
                         <img src="img/logodefault.jpeg" alt="Sarah Johnson">
                     </div>
                     <h3 class="member-name">Sarah Johnson</h3>
-                    <p class="member-role">Product Manager</p>
-                    <p class="member-description">
-                        Strategic product manager with expertise in educational technology. 
-                        Ensures our platform meets the needs of students and educators.
-                    </p>
-                    <div class="member-social">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
-                    </div>
+                    <p class="member-role">BTech CSE</p>
+                    <p class="member-year">2nd Year</p>
                 </div>
 
                 <!-- Team Member 4 -->
@@ -233,16 +236,8 @@
                         <img src="img/Ajay.jpg" alt="Michael Chen">
                     </div>
                     <h3 class="member-name">Michael Chen</h3>
-                    <p class="member-role">Backend Developer</p>
-                    <p class="member-description">
-                        Backend specialist with deep knowledge in database design and API development. 
-                        Ensures our platform is scalable and secure.
-                    </p>
-                    <div class="member-social">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-stack-overflow"></i></a>
-                    </div>
+                    <p class="member-role">BTech CSE</p>
+                    <p class="member-year">2nd Year</p>
                 </div>
 
                 <!-- Team Member 5 -->
@@ -251,16 +246,8 @@
                         <img src="img/siddhant.jpg" alt="Emily Rodriguez">
                     </div>
                     <h3 class="member-name">Emily Rodriguez</h3>
-                    <p class="member-role">Frontend Developer</p>
-                    <p class="member-description">
-                        Frontend expert specializing in React and modern web technologies. 
-                        Creates responsive and interactive user interfaces.
-                    </p>
-                    <div class="member-social">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-codepen"></i></a>
-                    </div>
+                    <p class="member-role">BTech CSE</p>
+                    <p class="member-year">2nd Year</p>
                 </div>
 
                 <!-- Team Member 6 -->
@@ -269,16 +256,8 @@
                         <img src="img/logodefault.jpeg" alt="David Kim">
                     </div>
                     <h3 class="member-name">David Kim</h3>
-                    <p class="member-role">DevOps Engineer</p>
-                    <p class="member-description">
-                        DevOps specialist ensuring our platform runs smoothly and efficiently. 
-                        Expert in cloud infrastructure and deployment automation.
-                    </p>
-                    <div class="member-social">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-docker"></i></a>
-                    </div>
+                    <p class="member-role">BTech CSE</p>
+                    <p class="member-year">2nd Year</p>
                 </div>
             </div>
 
