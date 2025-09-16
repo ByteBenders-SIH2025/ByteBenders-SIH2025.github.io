@@ -18,7 +18,7 @@ const teachersData = [
         address: 'Lucknow',
         qualifications: 'Ph.D. in Mathematics, M.Ed. in Education, B.Sc. in Mathematics',
         subjects: 'Advanced Mathematics, Calculus, Algebra, Statistics',
-        photo: 'logodefault.jpeg?text=JS',
+        photo: 'img/logodefault.jpeg',
         experience: 8,
         rating: 4.8,
         status: 'Active'
@@ -39,7 +39,7 @@ const teachersData = [
         address: 'Lucknow',
         qualifications: 'M.Sc. in Physics, B.Ed. in Science Education',
         subjects: 'Physics, Chemistry, Biology',
-        photo: 'https://via.placeholder.com/120x120/10b981/ffffff?text=SJ',
+        photo: 'img/logodefault.jpeg',
         experience: 6,
         rating: 4.6,
         status: 'Active'
@@ -60,7 +60,7 @@ const teachersData = [
         address: 'Lucknow',
         qualifications: 'M.A. in English Literature, B.Ed. in English',
         subjects: 'English Literature, Creative Writing, Grammar',
-        photo: 'https://via.placeholder.com/120x120/f59e0b/ffffff?text=MB',
+        photo: 'img/logodefault.jpeg',
         experience: 4,
         rating: 4.4,
         status: 'Active'
@@ -81,7 +81,7 @@ const teachersData = [
         address: 'lucknow',
         qualifications: 'M.A. in History, B.Ed. in Social Studies',
         subjects: 'World History, American History, Geography',
-        photo: 'https://via.placeholder.com/120x120/8b5cf6/ffffff?text=ED',
+        photo: 'img/logodefault.jpeg',
         experience: 5,
         rating: 4.5,
         status: 'Active'
@@ -102,7 +102,7 @@ const teachersData = [
         address: 'lucknow',
         qualifications: 'M.Ed. in Physical Education, B.Sc. in Sports Science',
         subjects: 'Physical Education, Sports Science, Health',
-        photo: 'https://via.placeholder.com/120x120/ef4444/ffffff?text=DW',
+        photo: 'img/logodefault.jpeg',
         experience: 12,
         rating: 4.7,
         status: 'Active'
